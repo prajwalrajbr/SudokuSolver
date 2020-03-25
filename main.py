@@ -11,7 +11,15 @@ board=[
     [0,4,9,2,0,6,0,0,7]
       ]
 
-def checker(value,row,col):
+
+
+def findEmpty():
+    for i in range(0,9):
+        for j in range(0,9):
+            if board[i][j]==0:
+                return i,j
+
+def checkIfValid(value,row,col):
     global board
     #Row checker
     for i in range(0,9):
@@ -73,6 +81,8 @@ def checker(value,row,col):
                     if board[i][j]==value:
                         return False
 
+    return True
+
 def showBoard():
     global board
     c1=0
@@ -89,5 +99,5 @@ def showBoard():
         c1=c1+1
         if c1%3==0:
             print("-------------------------")       
-        
+                   
 showBoard()
