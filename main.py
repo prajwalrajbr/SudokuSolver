@@ -1,7 +1,8 @@
-
+#import timeit
+#start = timeit.default_timer()
 board=[
     [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,5],
+    [6,0,0,0,7,5,0,0,9],
     [0,0,0,6,0,1,0,7,8],
     [0,0,7,0,4,0,2,6,0],
     [0,0,1,0,5,0,9,3,0],
@@ -11,9 +12,25 @@ board=[
     [0,4,9,2,0,6,0,0,7]
       ]
 
+def solve():
+    global board 
+    x=findEmpty()
+    if x:
+        row,col=x
+    else:
+        return True
 
-
+    #Insert 1 to 9 to the position of 0
+    for i in range(1,10):
+        if checkIfValid(i,row,col):
+            board[row][col]=i
+            if solve():
+                return True
+            board[row][col]=0
+    return False
+            
 def findEmpty():
+    #Check for the value 0
     for i in range(0,9):
         for j in range(0,9):
             if board[i][j]==0:
@@ -99,5 +116,11 @@ def showBoard():
         c1=c1+1
         if c1%3==0:
             print("-------------------------")       
-                   
+
+print("BEFORE:")                  
 showBoard()
+solve()
+print("AFTER:")
+showBoard()
+#stop = timeit.default_timer()
+#print (stop-start)
