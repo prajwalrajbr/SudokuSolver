@@ -1,7 +1,31 @@
+import requests
+import json
 #import timeit
 #start = timeit.default_timer()
 
+# api_URL = http://www.cs.utep.edu/cheon/ws/sudoku/new/[?size][&level]
+
 class sudokuSolver:
+
+    def getBoard(self):
+        global board
+        level = input("ENTER THE DIFFICULTY LEVEL:\n1 = EASY\n2 = MEDIUM\n3 = HARD\n")
+
+        if int(level) in [1,2,3]:
+            try:
+                api_request = requests.get("http://www.cs.utep.edu/cheon/ws/sudoku/new/?size=9&level="+level)
+                api = json.loads(api_request.content)
+            except:
+                return
+
+            if api['response']:
+                #Clear the content of board
+                for i in range(0,9):
+                    for j in range(0,9):
+                        board[i][j]=0
+
+                for i in range(0,len(api['squares'])):
+                    board[api['squares'][i]['x']][api['squares'][i]['y']]=api['squares'][i]['value']
 
     def findEmpty(self):
         #Check for the value 0
@@ -31,12 +55,12 @@ class sudokuSolver:
         global board
         #Row checker
         for i in range(0,9):
-            if board[i][col]==value and i!=row:
+            if board[i][col]==value:
                 return False
 
         #Column checker
         for i in range(0,9):
-            if board[row][i]==value and i!=col:
+            if board[row][i]==value:
                 return False
 
         #Corresponding 3X3 box checker
@@ -108,11 +132,13 @@ class sudokuSolver:
                 print("-------------------------")       
 
     def start(self):  
+        self.getBoard()
         print("BEFORE:")                      
         self.showBoard()
         self.solve()
         print("AFTER:")
         self.showBoard()
+
 board=[
         [7,8,0,4,0,0,1,2,0],
         [6,0,0,0,7,5,0,0,9],
@@ -124,7 +150,7 @@ board=[
         [1,2,0,0,0,7,4,0,0],
         [0,4,9,2,0,6,0,0,7]
         ]
- 
+
 s = sudokuSolver()
 s.start()
 
