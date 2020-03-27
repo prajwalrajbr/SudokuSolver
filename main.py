@@ -1,5 +1,6 @@
 import requests
 import json
+from copy import deepcopy
 from random import choice
 #import timeit
 #start = timeit.default_timer()
@@ -56,6 +57,16 @@ class sudokuSolver:
                     for j in range(0,9):
                         board[i][j] = board[i-1][(j+3)%9]
                 
+                #Rotate the board randomly to hide shifting
+                tempBoard=deepcopy(board)
+                for k in range(0,choice([1,2,3])):
+                    for i in range(0,9):
+                        for j in range(0,9):
+                            board[i][j]=tempBoard[j][8-i]
+
+                #Delete the variable tempboard
+                del tempBoard
+
                 values=[0,1,2,3,4,5,6,7,8]
                 #No. of empty spaces = 30 for EASY
                 if level==1:
@@ -84,7 +95,7 @@ class sudokuSolver:
                             i = i-1
                         else:
                             board[r][c]=0
-
+   
     def findEmpty(self):
         #Check for the value 0
         for i in range(0,9):
