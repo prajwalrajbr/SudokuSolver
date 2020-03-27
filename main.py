@@ -1,5 +1,6 @@
 import requests
 import json
+from random import choice
 #import timeit
 #start = timeit.default_timer()
 
@@ -9,23 +10,80 @@ class sudokuSolver:
 
     def getBoard(self):
         global board
-        level = input("ENTER THE DIFFICULTY LEVEL:\n1 = EASY\n2 = MEDIUM\n3 = HARD\n")
+        level = int(input("ENTER THE DIFFICULTY LEVEL:\n1 = EASY\n2 = MEDIUM\n3 = HARD\n"))
 
-        if int(level) in [1,2,3]:
+        if level in [1,2,3]:
             try:
-                api_request = requests.get("http://www.cs.utep.edu/cheon/ws/sudoku/new/?size=9&level="+level)
+                res = False
+                api_request = requests.get("http://www.cs.utep.edu/cheon/ws/sudoku/new/?size=9&level="+str(level))
                 api = json.loads(api_request.content)
+                res = api['response']
             except:
-                return
+                pass
 
-            if api['response']:
-                #Clear the content of board
+            if res:
+                if api['response']:
+                    #Clear the content of board
+                    for i in range(0,9):
+                        for j in range(0,9):
+                            board[i][j]=0
+
+                    for i in range(0,len(api['squares'])):
+                        board[api['squares'][i]['x']][api['squares'][i]['y']]=api['squares'][i]['value']
+            
+            else:
+                values=[1,2,3,4,5,6,7,8,9]
+                #Enter any random values from 1 to 9 for the 1st row
                 for i in range(0,9):
+                    board[0][i] = choice(values)
+                    values.remove(board[0][i])
+                #Right shift 3 times for both the 2nd and 3rd row
+                for i in range(1,3):    
                     for j in range(0,9):
-                        board[i][j]=0
-
-                for i in range(0,len(api['squares'])):
-                    board[api['squares'][i]['x']][api['squares'][i]['y']]=api['squares'][i]['value']
+                        board[i][j] = board[i-1][(j+3)%9]
+                #Right shift 1 time for 4th row
+                for i in range(0,9):
+                    board[3][i] = board[2][(i+1)%9]
+                #Right shift 3 times for both the 5th and 6th row
+                for i in range(4,6):    
+                    for j in range(0,9):
+                        board[i][j] = board[i-1][(j+3)%9]
+                #Right shift 1 time for 7th row
+                for i in range(0,9):
+                    board[6][i] = board[5][(i+1)%9]
+                #Right shift 3 times for both the 8th and 9th row
+                for i in range(7,9):    
+                    for j in range(0,9):
+                        board[i][j] = board[i-1][(j+3)%9]
+                
+                values=[0,1,2,3,4,5,6,7,8]
+                #No. of empty spaces = 30 for EASY
+                if level==1:
+                    for i in range(0,30):
+                        r = choice(values)
+                        c = choice(values)
+                        if board[r][c]==0:
+                            i = i-1
+                        else:
+                            board[r][c]=0
+                #No. of empty spaces = 45 for MEDIUM
+                elif level==2:
+                    for i in range(0,45):
+                        r = choice(values)
+                        c = choice(values)
+                        if board[r][c]==0:
+                            i = i-1
+                        else:
+                            board[r][c]=0
+                #No. of empty spaces = 60 for HARD
+                else:
+                    for i in range(0,60):
+                        r = choice(values)
+                        c = choice(values)
+                        if board[r][c]==0:
+                            i = i-1
+                        else:
+                            board[r][c]=0
 
     def findEmpty(self):
         #Check for the value 0
@@ -140,15 +198,15 @@ class sudokuSolver:
         self.showBoard()
 
 board=[
-        [7,8,0,4,0,0,1,2,0],
-        [6,0,0,0,7,5,0,0,9],
-        [0,0,0,6,0,1,0,7,8],
-        [0,0,7,0,4,0,2,6,0],
-        [0,0,1,0,5,0,9,3,0],
-        [9,0,4,0,6,0,0,0,5],
-        [0,7,0,3,0,0,0,1,2],
-        [1,2,0,0,0,7,4,0,0],
-        [0,4,9,2,0,6,0,0,7]
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0]
         ]
 
 s = sudokuSolver()
