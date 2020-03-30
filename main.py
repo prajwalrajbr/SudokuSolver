@@ -922,6 +922,12 @@ for i in range(0,len(labels)):
     for j in range(0,len(labels[i])):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5,padx=0,pady=0)
 
+submitButton = Button(root, text="Submit")
+submitButton.grid(row=10, column=0)
+
+solveButton = Button(root, text="Solve")
+submitButton.grid(row=10, column=3)
+
 
 root.mainloop()
 
