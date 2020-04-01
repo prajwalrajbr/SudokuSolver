@@ -10,8 +10,7 @@ from tkinter import *
 
 class sudokuSolver:
 
-    def getBoard(self):
-        global board
+    def getBoard(self, board):
         level = int(input("ENTER THE DIFFICULTY LEVEL:\n1 = EASY\n2 = MEDIUM\n3 = HARD\n"))
 
         if level in [1,2,3]:
@@ -97,16 +96,15 @@ class sudokuSolver:
                         else:
                             board[r][c]=0
    
-    def findEmpty(self):
+    def findEmpty(self, board):
         #Check for the value 0
         for i in range(0,9):
             for j in range(0,9):
                 if board[i][j]==0:
                     return i,j
 
-    def solve(self):
-        global board 
-        x=self.findEmpty()
+    def solve(self, board):
+        x=self.findEmpty(board)
         if x:
             row,col=x
         else:
@@ -114,15 +112,14 @@ class sudokuSolver:
 
         #Insert 1 to 9 to the position of 0
         for i in range(1,10):
-            if self.checkIfValid(i,row,col):
+            if self.checkIfValid(i,row,col,board):
                 board[row][col]=i
-                if self.solve():
+                if self.solve(board):
                     return True
                 board[row][col]=0
         return False
                   
-    def checkIfValid(self,value,row,col):
-        global board
+    def checkIfValid(self,value,row,col,board):
         #Row checker
         for i in range(0,9):
             if board[i][col]==value:
@@ -184,8 +181,7 @@ class sudokuSolver:
                             return False
         return True
 
-    def showBoard(self):
-        global board
+    def showBoard(self, board):
         c1=0
         c2=0
         print("-------------------------")
@@ -201,8 +197,8 @@ class sudokuSolver:
             if c1%3==0:
                 print("-------------------------")       
 
-    def start(self):  
-        self.getBoard()                      
+    #def start(self):  
+        #self.getBoard()                      
         #self.showBoard()
         #self.solve()
         #self.showBoard()
@@ -221,7 +217,7 @@ board=[
 
 
 s = sudokuSolver()
-s.start()
+s.getBoard(board)
 
 root = Tk()
 
@@ -908,25 +904,56 @@ labels = [[label00,label01,label02,label03,label04,label05,label06,label07,label
          ]
 
 entryValues = [[label00Value,label01Value,label02Value,label03Value,label04Value,label05Value,label06Value,label07Value,label08Value],
-               [label10Value,label01Value,label12Value,label13Value,label14Value,label15Value,label16Value,label17Value,label18Value],
-               [label20Value,label02Value,label22Value,label23Value,label24Value,label25Value,label26Value,label27Value,label28Value],
-               [label30Value,label03Value,label32Value,label33Value,label34Value,label35Value,label36Value,label37Value,label38Value],
-               [label40Value,label04Value,label42Value,label43Value,label44Value,label45Value,label46Value,label47Value,label48Value],
-               [label50Value,label05Value,label52Value,label53Value,label54Value,label55Value,label56Value,label57Value,label58Value],
-               [label60Value,label06Value,label62Value,label63Value,label64Value,label65Value,label66Value,label67Value,label68Value],
-               [label70Value,label07Value,label72Value,label73Value,label74Value,label75Value,label76Value,label77Value,label78Value],
-               [label80Value,label08Value,label82Value,label83Value,label84Value,label85Value,label86Value,label87Value,label88Value]
+               [label10Value,label11Value,label12Value,label13Value,label14Value,label15Value,label16Value,label17Value,label18Value],
+               [label20Value,label21Value,label22Value,label23Value,label24Value,label25Value,label26Value,label27Value,label28Value],
+               [label30Value,label31Value,label32Value,label33Value,label34Value,label35Value,label36Value,label37Value,label38Value],
+               [label40Value,label41Value,label42Value,label43Value,label44Value,label45Value,label46Value,label47Value,label48Value],
+               [label50Value,label51Value,label52Value,label53Value,label54Value,label55Value,label56Value,label57Value,label58Value],
+               [label60Value,label61Value,label62Value,label63Value,label64Value,label65Value,label66Value,label67Value,label68Value],
+               [label70Value,label71Value,label72Value,label73Value,label74Value,label75Value,label76Value,label77Value,label78Value],
+               [label80Value,label81Value,label82Value,label83Value,label84Value,label85Value,label86Value,label87Value,label88Value]
               ]
 
 for i in range(0,len(labels)):
     for j in range(0,len(labels[i])):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5,padx=0,pady=0)
 
-submitButton = Button(root, text="Submit")
-submitButton.grid(row=10, column=0)
+def submit():
+    temp=deepcopy(board)
+    t = sudokuSolver()
+    t.solve(temp)
+    t.showBoard(temp)
+    for i in range(0,9):
+        for j in range(0,9):
+            if board[i][j] == 0:
+                try:
+                    if entryValues[i][j].get() == temp[i][j]:
+                        print("true")
+                    else:
+                        print("False")
+                except:                   
+                    print("False")
+    del temp
+    del t
 
-solveButton = Button(root, text="Solve")
-submitButton.grid(row=10, column=3)
+def solve():
+    temp=deepcopy(board)
+    t = sudokuSolver()
+    t.solve(temp)
+    for i in range(0,9):
+        for j in range(0,9):
+            if board[i][j] == 0:
+                entryValues[i][j].set(temp[i][j])
+    del temp
+    del t
+
+
+submitButton = Button(root, text="Submit", padx=30, pady=10, command=submit)
+submitButton.grid(row=10, column=0, columnspan=3)
+
+solveButton = Button(root, text="Solve", padx=36, pady=10, command=solve)
+solveButton.grid(row=10, column=2, columnspan=5)
+
 
 
 root.mainloop()
