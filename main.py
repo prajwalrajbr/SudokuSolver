@@ -1,5 +1,6 @@
 import requests
 import json
+from time import *
 from copy import deepcopy
 from random import choice
 from tkinter import *
@@ -317,63 +318,63 @@ label88Value = IntVar()
 if board[0][0]==0:  
     def keyPress00(event):
         label00.delete(0, END)
-    label00 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=3, font=('Verdana',8), justify='center', textvariable=label00Value)    
+    label00 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label00Value)    
     label00.bind('<KeyPress>', keyPress00)
 else:
     label00 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][0])+" ", borderwidth=1, relief='groove')
 if board[0][1]==0:
     def keyPress01(event):
         label01.delete(0, END)
-    label01 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=3, font=('Verdana',8), justify='center', textvariable=label01Value)
+    label01 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label01Value)
     label01.bind('<KeyPress>', keyPress01)
 else:   
     label01 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][1])+" ", borderwidth=1, relief='groove')
 if board[0][2]==0:
     def keyPress02(event):
         label02.delete(0, END)
-    label02 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=3, font=('Verdana',8), justify='center', textvariable=label02Value)
+    label02 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label02Value)
     label02.bind('<KeyPress>', keyPress02)
 else:    
     label02 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][2])+" ", borderwidth=1, relief='groove')
 if board[0][3]==0:
     def keyPress03(event):
         label03.delete(0, END)
-    label03 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label03Value)
+    label03 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label03Value)
     label03.bind('<KeyPress>', keyPress03)
 else:    
     label03 = Label(root, text=str(board[0][3]))
 if board[0][4]==0:
     def keyPress04(event):
         label04.delete(0, END)
-    label04 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label04Value)
+    label04 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label04Value)
     label04.bind('<KeyPress>', keyPress04)
 else:    
     label04 = Label(root, text=str(board[0][4]))
 if board[0][5]==0:
     def keyPress05(event):
         label05.delete(0, END)
-    label05 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label05Value)
+    label05 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label05Value)
     label05.bind('<KeyPress>', keyPress05)
 else:    
     label05 = Label(root, text=str(board[0][5]))
 if board[0][6]==0:
     def keyPress06(event):
         label06.delete(0, END)
-    label06 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label06Value)
+    label06 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label06Value)
     label06.bind('<KeyPress>', keyPress06)
 else:    
     label06 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][6])+" ", borderwidth=1, relief='groove')
 if board[0][7]==0:
     def keyPress07(event):
         label07.delete(0, END)
-    label07 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label07Value)
+    label07 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label07Value)
     label07.bind('<KeyPress>', keyPress07)
 else:    
     label07 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][7])+" ", borderwidth=1, relief='groove')
 if board[0][8]==0:
     def keyPress08(event):
         label08.delete(0, END)
-    label08 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label08Value)
+    label08 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label08Value)
     label08.bind('<KeyPress>', keyPress08)
 else:    
     label08 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][8])+" ", borderwidth=1, relief='groove')
@@ -381,63 +382,63 @@ else:
 if board[1][0]==0:
     def keyPress10(event):
         label10.delete(0, END)
-    label10 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label10Value)
+    label10 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label10Value)
     label10.bind('<KeyPress>', keyPress10)
 else:
     label10 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][0])+" ", borderwidth=1, relief='groove')
 if board[1][1]==0:
     def keyPress11(event):
         label11.delete(0, END)
-    label11 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label11Value)
+    label11 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label11Value)
     label11.bind('<KeyPress>', keyPress11)
 else:    
     label11 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][1])+" ", borderwidth=1, relief='groove')
 if board[1][2]==0:
     def keyPress12(event):
         label12.delete(0, END)
-    label12 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label12Value)
+    label12 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label12Value)
     label12.bind('<KeyPress>', keyPress12)
 else:   
     label12 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][2])+" ", borderwidth=1, relief='groove')
 if board[1][3]==0:
     def keyPress13(event):
         label13.delete(0, END)
-    label13 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label13Value)
+    label13 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label13Value)
     label13.bind('<KeyPress>', keyPress13)
 else:    
     label13 = Label(root, text=str(board[1][3]))
 if board[1][4]==0:
     def keyPress14(event):
         label14.delete(0, END)
-    label14 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label14Value)
+    label14 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label14Value)
     label14.bind('<KeyPress>', keyPress14)
 else:
     label14 = Label(root, text=str(board[1][4]))
 if board[1][5]==0:
     def keyPress15(event):
         label15.delete(0, END)
-    label15 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label15Value)
+    label15 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label15Value)
     label15.bind('<KeyPress>', keyPress15)
 else:
     label15 = Label(root, text=str(board[1][5]))
 if board[1][6]==0:
     def keyPress16(event):
         label16.delete(0, END)
-    label16 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label16Value)
+    label16 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label16Value)
     label16.bind('<KeyPress>', keyPress16)
 else:
     label16 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][6])+" ", borderwidth=1, relief='groove')
 if board[1][7]==0:
     def keyPress17(event):
         label17.delete(0, END)
-    label17 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label17Value)
+    label17 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label17Value)
     label17.bind('<KeyPress>', keyPress17)
 else:
     label17 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][7])+" ", borderwidth=1, relief='groove')
 if board[1][8]==0:
     def keyPress18(event):
         label18.delete(0, END)
-    label18 = Entry(root, bg='#C0C0C0', fg='#000000', bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label18Value)
+    label18 = Entry(root, bg='#C0C0C0', fg='#000000', bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label18Value)
     label18.bind('<KeyPress>', keyPress18)
 else:
     label18 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][8])+" ", borderwidth=1, relief='groove')
@@ -445,63 +446,63 @@ else:
 if board[2][0]==0:
     def keyPress20(event):
         label20.delete(0, END)
-    label20 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label20Value)
+    label20 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label20Value)
     label20.bind('<KeyPress>', keyPress20)
 else:
     label20 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][0])+" ", borderwidth=1, relief='groove')
 if board[2][1]==0:
     def keyPress21(event):
         label21.delete(0, END)
-    label21 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label21Value)
+    label21 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label21Value)
     label21.bind('<KeyPress>', keyPress21)
 else:
     label21 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][1])+" ", borderwidth=1, relief='groove')
 if board[2][2]==0:
     def keyPress22(event):
         label22.delete(0, END)
-    label22 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label22Value)
+    label22 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label22Value)
     label22.bind('<KeyPress>', keyPress22)
 else:
     label22 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][2])+" ", borderwidth=1, relief='groove')
 if board[2][3]==0:
     def keyPress23(event):
         label23.delete(0, END)
-    label23 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label23Value)
+    label23 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label23Value)
     label23.bind('<KeyPress>', keyPress23)
 else:
     label23 = Label(root, text=str(board[2][3]))
 if board[2][4]==0:
     def keyPress24(event):
         label24.delete(0, END)
-    label24 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label24Value)
+    label24 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label24Value)
     label24.bind('<KeyPress>', keyPress24)
 else:
     label24 = Label(root, text=str(board[2][4]))
 if board[2][5]==0:
     def keyPress25(event):
         label25.delete(0, END)
-    label25 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label25Value)
+    label25 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label25Value)
     label25.bind('<KeyPress>', keyPress25)
 else:
     label25 = Label(root, text=str(board[2][5]))
 if board[2][6]==0:
     def keyPress26(event):
         label26.delete(0, END)
-    label26 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label26Value)
+    label26 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label26Value)
     label26.bind('<KeyPress>', keyPress26)
 else:
     label26 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][6])+" ", borderwidth=1, relief='groove')
 if board[2][7]==0:
     def keyPress27(event):
         label27.delete(0, END)
-    label27 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label27Value)
+    label27 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label27Value)
     label27.bind('<KeyPress>', keyPress27)
 else:
     label27 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][7])+" ", borderwidth=1, relief='groove')
 if board[2][8]==0:
     def keyPress28(event):
         label28.delete(0, END)
-    label28 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label28Value)
+    label28 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label28Value)
     label28.bind('<KeyPress>', keyPress28)
 else:
     label28 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][8])+" ", borderwidth=1, relief='groove')
@@ -509,63 +510,63 @@ else:
 if board[3][0]==0:
     def keyPress30(event):
         label30.delete(0, END)
-    label30 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label30Value)
+    label30 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label30Value)
     label30.bind('<KeyPress>', keyPress30)
 else:
     label30 = Label(root, text=str(board[3][0]))
 if board[3][1]==0:
     def keyPress31(event):
         label31.delete(0, END)
-    label31 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label31Value)
+    label31 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label31Value)
     label31.bind('<KeyPress>', keyPress31)
 else:
     label31 = Label(root, text=str(board[3][1]))
 if board[3][2]==0:
     def keyPress32(event):
         label32.delete(0, END)
-    label32 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label32Value)
+    label32 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label32Value)
     label32.bind('<KeyPress>', keyPress32)
 else:
     label32 = Label(root, text=str(board[3][2]))
 if board[3][3]==0:
     def keyPress33(event):
         label33.delete(0, END)
-    label33 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label33Value)
+    label33 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label33Value)
     label33.bind('<KeyPress>', keyPress33)
 else:
     label33 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][3])+" ", borderwidth=1, relief='groove')
 if board[3][4]==0:
     def keyPress34(event):
         label34.delete(0, END)
-    label34 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label34Value)
+    label34 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label34Value)
     label34.bind('<KeyPress>', keyPress34)
 else:
     label34 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][4])+" ", borderwidth=1, relief='groove')
 if board[3][5]==0:
     def keyPress35(event):
         label35.delete(0, END)
-    label35 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label35Value)
+    label35 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label35Value)
     label35.bind('<KeyPress>', keyPress35)
 else:
     label35 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][5])+" ", borderwidth=1, relief='groove')
 if board[3][6]==0:
     def keyPress36(event):
         label36.delete(0, END)
-    label36 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label36Value)
+    label36 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label36Value)
     label36.bind('<KeyPress>', keyPress36)
 else:
     label36 = Label(root, text=str(board[3][6]))
 if board[3][7]==0:
     def keyPress37(event):
         label37.delete(0, END)
-    label37 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label37Value)
+    label37 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label37Value)
     label37.bind('<KeyPress>', keyPress37)
 else:
     label37 = Label(root, text=str(board[3][7]))
 if board[3][8]==0:
     def keyPress38(event):
         label38.delete(0, END)
-    label38 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label38Value)
+    label38 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label38Value)
     label38.bind('<KeyPress>', keyPress38)
 else:
     label38 = Label(root, text=str(board[3][8]))
@@ -573,63 +574,63 @@ else:
 if board[4][0]==0:
     def keyPress40(event):
         label40.delete(0, END)
-    label40 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label40Value)
+    label40 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label40Value)
     label40.bind('<KeyPress>', keyPress40)
 else:
     label40 = Label(root, text=str(board[4][0]))
 if board[4][1]==0:
     def keyPress41(event):
         label41.delete(0, END)
-    label41 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label41Value)
+    label41 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label41Value)
     label41.bind('<KeyPress>', keyPress41)
 else:
     label41 = Label(root, text=str(board[4][1]))
 if board[4][2]==0:
     def keyPress42(event):
         label42.delete(0, END)
-    label42 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label42Value)
+    label42 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label42Value)
     label42.bind('<KeyPress>', keyPress42)
 else:
     label42 = Label(root, text=str(board[4][2]))
 if board[4][3]==0:
     def keyPress43(event):
         label43.delete(0, END)
-    label43 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label43Value)
+    label43 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label43Value)
     label43.bind('<KeyPress>', keyPress43)
 else:
     label43 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][3])+" ", borderwidth=1, relief='groove')
 if board[4][4]==0:
     def keyPress44(event):
         label44.delete(0, END)
-    label44 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label44Value)
+    label44 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label44Value)
     label44.bind('<KeyPress>', keyPress44)
 else:
     label44 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][4])+" ", borderwidth=1, relief='groove')
 if board[4][5]==0:
     def keyPress45(event):
         label45.delete(0, END)
-    label45 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label45Value)
+    label45 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label45Value)
     label45.bind('<KeyPress>', keyPress45)
 else:
     label45 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][5])+" ", borderwidth=1, relief='groove')
 if board[4][6]==0:
     def keyPress46(event):
         label46.delete(0, END)
-    label46 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label46Value)
+    label46 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label46Value)
     label46.bind('<KeyPress>', keyPress46)
 else:
     label46 = Label(root, text=str(board[4][6]))
 if board[4][7]==0:
     def keyPress47(event):
         label47.delete(0, END)
-    label47 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label47Value)
+    label47 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label47Value)
     label47.bind('<KeyPress>', keyPress47)
 else:
     label47 = Label(root, text=str(board[4][7]))
 if board[4][8]==0:
     def keyPress48(event):
         label48.delete(0, END)
-    label48 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label48Value)
+    label48 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label48Value)
     label48.bind('<KeyPress>', keyPress48)
 else:
     label48 = Label(root, text=str(board[4][8]))
@@ -637,63 +638,63 @@ else:
 if board[5][0]==0:
     def keyPress50(event):
         label50.delete(0, END)
-    label50 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label50Value)
+    label50 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label50Value)
     label50.bind('<KeyPress>', keyPress50)
 else:
     label50 = Label(root, text=str(board[5][0]))
 if board[5][1]==0:
     def keyPress51(event):
         label51.delete(0, END)
-    label51 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label51Value)
+    label51 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label51Value)
     label51.bind('<KeyPress>', keyPress51)
 else:
     label51 = Label(root, text=str(board[5][1]))
 if board[5][2]==0:
     def keyPress52(event):
         label52.delete(0, END)
-    label52 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label52Value)
+    label52 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label52Value)
     label52.bind('<KeyPress>', keyPress52)
 else:
     label52 = Label(root, text=str(board[5][2]))
 if board[5][3]==0:
     def keyPress53(event):
         label53.delete(0, END)
-    label53 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label53Value)
+    label53 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label53Value)
     label53.bind('<KeyPress>', keyPress53)
 else:
     label53 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][3])+" ", borderwidth=1, relief='groove')
 if board[5][4]==0:
     def keyPress54(event):
         label54.delete(0, END)
-    label54 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label54Value)
+    label54 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label54Value)
     label54.bind('<KeyPress>', keyPress54)
 else:
     label54 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][4])+" ", borderwidth=1, relief='groove')
 if board[5][5]==0:
     def keyPress55(event):
         label55.delete(0, END)
-    label55 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label55Value)
+    label55 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label55Value)
     label55.bind('<KeyPress>', keyPress55)
 else:
     label55 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][5])+" ", borderwidth=1, relief='groove')
 if board[5][6]==0:
     def keyPress56(event):
         label56.delete(0, END)
-    label56 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label56Value)
+    label56 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label56Value)
     label56.bind('<KeyPress>', keyPress56)
 else:
     label56 = Label(root, text=str(board[5][6]))
 if board[5][7]==0:
     def keyPress57(event):
         label57.delete(0, END)
-    label57 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label57Value)
+    label57 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label57Value)
     label57.bind('<KeyPress>', keyPress57)
 else:
     label57 = Label(root, text=str(board[5][7]))
 if board[5][8]==0:
     def keyPress58(event):
         label58.delete(0, END)
-    label58 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label58Value)
+    label58 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label58Value)
     label58.bind('<KeyPress>', keyPress58)
 else:
     label58 = Label(root, text=str(board[5][8]))
@@ -701,63 +702,63 @@ else:
 if board[6][0]==0:
     def keyPress60(event):
         label60.delete(0, END)
-    label60 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label60Value)
+    label60 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label60Value)
     label60.bind('<KeyPress>', keyPress60)
 else:
     label60 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][0])+" ", borderwidth=1, relief='groove')
 if board[6][1]==0:
     def keyPress61(event):
         label61.delete(0, END)
-    label61 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label61Value)
+    label61 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label61Value)
     label61.bind('<KeyPress>', keyPress61)
 else:
     label61 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][1])+" ", borderwidth=1, relief='groove')
 if board[6][2]==0:
     def keyPress62(event):
         label62.delete(0, END)
-    label62 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label62Value)
+    label62 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label62Value)
     label62.bind('<KeyPress>', keyPress62)
 else:
     label62 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][2])+" ", borderwidth=1, relief='groove')
 if board[6][3]==0:
     def keyPress63(event):
         label63.delete(0, END)
-    label63 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label63Value)
+    label63 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label63Value)
     label63.bind('<KeyPress>', keyPress63)
 else:
     label63 = Label(root, text=str(board[6][3]))
 if board[6][4]==0:
     def keyPress64(event):
         label64.delete(0, END)
-    label64 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label64Value)
+    label64 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label64Value)
     label64.bind('<KeyPress>', keyPress64)
 else:
     label64 = Label(root, text=str(board[6][4]))
 if board[6][5]==0:
     def keyPress65(event):
         label65.delete(0, END)
-    label65 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label65Value)
+    label65 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label65Value)
     label65.bind('<KeyPress>', keyPress65)
 else:
     label65 = Label(root, text=str(board[6][5]))
 if board[6][6]==0:
     def keyPress66(event):
         label66.delete(0, END)
-    label66 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label66Value)
+    label66 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label66Value)
     label66.bind('<KeyPress>', keyPress66)
 else:
     label66 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][6])+" ", borderwidth=1, relief='groove')
 if board[6][7]==0:
     def keyPress67(event):
         label67.delete(0, END)
-    label67 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label67Value)
+    label67 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label67Value)
     label67.bind('<KeyPress>', keyPress67)
 else:
     label67 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][7])+" ", borderwidth=1, relief='groove')
 if board[6][8]==0:
     def keyPress68(event):
         label68.delete(0, END)
-    label68 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label68Value)
+    label68 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label68Value)
     label68.bind('<KeyPress>', keyPress68)
 else:
     label68 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][8])+" ", borderwidth=1, relief='groove')
@@ -765,63 +766,63 @@ else:
 if board[7][0]==0:
     def keyPress70(event):
         label70.delete(0, END)
-    label70 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label70Value)
+    label70 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label70Value)
     label70.bind('<KeyPress>', keyPress70)
 else:
     label70 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][0])+" ", borderwidth=1, relief='groove')
 if board[7][1]==0:
     def keyPress71(event):
         label71.delete(0, END)
-    label71 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label71Value)
+    label71 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label71Value)
     label71.bind('<KeyPress>', keyPress71)
 else:
     label71 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][1])+" ", borderwidth=1, relief='groove')
 if board[7][2]==0:
     def keyPress72(event):
         label72.delete(0, END)
-    label72 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label72Value)
+    label72 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label72Value)
     label72.bind('<KeyPress>', keyPress72)
 else:
     label72 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][2])+" ", borderwidth=1, relief='groove')
 if board[7][3]==0:
     def keyPress73(event):
         label73.delete(0, END)
-    label73 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label73Value)
+    label73 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label73Value)
     label73.bind('<KeyPress>', keyPress73)
 else:
     label73 = Label(root, text=str(board[7][3]))
 if board[7][4]==0:
     def keyPress74(event):
         label74.delete(0, END)
-    label74 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label74Value)
+    label74 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label74Value)
     label74.bind('<KeyPress>', keyPress74)
 else:
     label74 = Label(root, text=str(board[7][4]))
 if board[7][5]==0:
     def keyPress75(event):
         label75.delete(0, END)
-    label75 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label75Value)
+    label75 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label75Value)
     label75.bind('<KeyPress>', keyPress75)
 else:
     label75 = Label(root, text=str(board[7][5]))
 if board[7][6]==0:
     def keyPress76(event):
         label76.delete(0, END)
-    label76 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label76Value)
+    label76 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label76Value)
     label76.bind('<KeyPress>', keyPress76)
 else:
     label76 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][6])+" ", borderwidth=1, relief='groove')
 if board[7][7]==0:
     def keyPress77(event):
         label77.delete(0, END)
-    label77 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label77Value)
+    label77 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label77Value)
     label77.bind('<KeyPress>', keyPress77)
 else:
     label77 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][7])+" ", borderwidth=1, relief='groove')
 if board[7][8]==0:
     def keyPress78(event):
         label78.delete(0, END)
-    label78 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label78Value)
+    label78 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label78Value)
     label78.bind('<KeyPress>', keyPress78)
 else:
     label78 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][8])+" ", borderwidth=1, relief='groove')
@@ -829,63 +830,63 @@ else:
 if board[8][0]==0:
     def keyPress80(event):
         label80.delete(0, END)
-    label80 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label80Value)
+    label80 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label80Value)
     label80.bind('<KeyPress>', keyPress80)
 else:
     label80 = Label(root, bd=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[8][0])+" ", borderwidth=1, relief='groove')
 if board[8][1]==0:
     def keyPress81(event):
         label81.delete(0, END)
-    label81 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label81Value)
+    label81 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label81Value)
     label81.bind('<KeyPress>', keyPress81)
 else:
     label81 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][1])+" ", borderwidth=1, relief='groove')
 if board[8][2]==0:
     def keyPress82(event):
         label82.delete(0, END)
-    label82 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label82Value)
+    label82 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label82Value)
     label82.bind('<KeyPress>', keyPress82)
 else:
     label82 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][2])+" ", borderwidth=1, relief='groove')
 if board[8][3]==0:
     def keyPress83(event):
         label83.delete(0, END)
-    label83 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label83Value)
+    label83 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label83Value)
     label83.bind('<KeyPress>', keyPress83)
 else:
     label83 = Label(root, bd=2, text=str(board[8][3]))
 if board[8][4]==0:
     def keyPress84(event):
         label84.delete(0, END)
-    label84 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label84Value)
+    label84 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label84Value)
     label84.bind('<KeyPress>', keyPress84)
 else:
     label84 = Label(root, bd=2, text=str(board[8][4]))
 if board[8][5]==0:
     def keyPress85(event):
         label85.delete(0, END)
-    label85 = Entry(root, bd=1, width=3, font=('Verdana',8), justify='center', textvariable=label85Value)
+    label85 = Entry(root, bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label85Value)
     label85.bind('<KeyPress>', keyPress85)
 else:
     label85 = Label(root, bd=2, text=str(board[8][5]))
 if board[8][6]==0:
     def keyPress86(event):
         label86.delete(0, END)
-    label86 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label86Value)
+    label86 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label86Value)
     label86.bind('<KeyPress>', keyPress86)
 else:
     label86 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][6])+" ", borderwidth=1, relief='groove')
 if board[8][7]==0:
     def keyPress87(event):
         label87.delete(0, END)
-    label87 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label87Value)
+    label87 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label87Value)
     label87.bind('<KeyPress>', keyPress87)
 else:
     label87 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][7])+" ", borderwidth=1, relief='groove')
 if board[8][8]==0:
     def keyPress88(event):
         label88.delete(0, END)
-    label88 = Entry(root, bd=1, width=3, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label88Value)
+    label88 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label88Value)
     label88.bind('<KeyPress>', keyPress88)
 else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
@@ -922,20 +923,16 @@ def submit():
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
-    t.showBoard(temp)
     for i in range(0,9):
         for j in range(0,9):
             if board[i][j] == 0:
                 try:
                     if entryValues[i][j].get() == temp[i][j]:
-                        labels[i][j].configure(bg='green')
-                        print("true")
+                        labels[i][j].configure(bg='#90EE90')
                     else:
-                        labels[i][j].configure(bg='red')
-                        print("False")
+                        labels[i][j].configure(bg='#FFCCCB')
                 except:       
-                    labels[i][j].configure(bg='red')            
-                    print("False")
+                    labels[i][j].configure(bg='#FFCCCB')
     del temp
     del t
 
@@ -949,7 +946,6 @@ def solve():
                 entryValues[i][j].set(temp[i][j])
     del temp
     del t
-
 
 submitButton = Button(root, text="Submit", padx=30, pady=10, command=submit)
 submitButton.grid(row=10, column=0, columnspan=3)
