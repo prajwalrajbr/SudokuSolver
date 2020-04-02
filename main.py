@@ -219,7 +219,7 @@ board=[
 
 s = sudokuSolver()
 s.getBoard(board)
-
+solved = False
 root = Tk()
 
 root.resizable(0,0)
@@ -920,6 +920,7 @@ for i in range(0,len(labels)):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
 def submit():
+
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
@@ -937,6 +938,10 @@ def submit():
     del t
 
 def solve():
+    global solved
+    if not solved:
+        submitButton.configure(state=DISABLED)
+    solved = True
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
