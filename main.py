@@ -216,7 +216,7 @@ board=[
         [0,0,0,0,0,0,0,0,0]
         ]
 
-
+count = 0
 s = sudokuSolver()
 s.getBoard(board)
 solved = False
@@ -920,20 +920,33 @@ for i in range(0,len(labels)):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
 def submit():
-
+    c=0
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
+    global count
     for i in range(0,9):
         for j in range(0,9):
-            if board[i][j] == 0:
-                try:
-                    if entryValues[i][j].get() == temp[i][j]:
-                        labels[i][j].configure(bg='#90EE90')
-                    else:
+            if board[i][j] == 0: 
+                c += 1
+    k=0
+    for i in range(0,9):
+        for j in range(0,9):
+            if board[i][j] == 0: 
+                if k <= count:
+                    try:
+                        if entryValues[i][j].get() == temp[i][j]:
+                            labels[i][j].configure(bg='#90EE90')
+                        else:
+                            labels[i][j].configure(bg='#FFCCCB')
+                    except:       
                         labels[i][j].configure(bg='#FFCCCB')
-                except:       
-                    labels[i][j].configure(bg='#FFCCCB')
+                    k += 1
+    count += 1
+    root.after(100,submit)
+    if c==count:
+        count=0
+
     del temp
     del t
 
