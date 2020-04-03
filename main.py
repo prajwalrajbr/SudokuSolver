@@ -919,6 +919,22 @@ for i in range(0,len(labels)):
     for j in range(0,len(labels[i])):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
+def changeColor():
+    for i in range(0,9):
+        for j in range(0,9):
+            if i in [0,1,2,6,7,8]:
+                if j in [0,1,2,6,7,8]:
+                    labels[i][j].configure(bg='#C0C0C0', fg='#000000')
+                else:
+                    labels[i][j].configure(bg='#FFFFFF', fg='#000000')
+            elif i in [3,4,5]:
+                if j in [3,4,5]:
+                    labels[i][j].configure(bg='#C0C0C0', fg='#000000')
+                else:
+                    labels[i][j].configure(bg='#FFFFFF', fg='#000000')
+            else:
+                labels[i][j].configure(bg='#FFFFFF', fg='#000000')
+
 def submit():
     c=0
     temp=deepcopy(board)
@@ -943,9 +959,11 @@ def submit():
                         labels[i][j].configure(bg='#FFCCCB')
                     k += 1
     count += 1
-    root.after(100,submit)
     if c==count:
         count=0
+        root.after(3000,changeColor)
+    else:
+        root.after(100,submit)
 
     del temp
     del t
