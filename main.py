@@ -198,11 +198,13 @@ class sudokuSolver:
             if c1%3==0:
                 print("-------------------------")       
 
-    #def start(self):  
-        #self.getBoard()                      
-        #self.showBoard()
-        #self.solve()
-        #self.showBoard()
+    def noOfEmpty(self,board):
+        count=0
+        for i in range(0,9):
+            for j in range(0,9):
+                if board[i][j] == 0:
+                    count += 1
+        return count
 
 board=[
         [0,0,0,0,0,0,0,0,0],
@@ -216,9 +218,11 @@ board=[
         [0,0,0,0,0,0,0,0,0]
         ]
 
+submitButtonCount = -1
 count = 0
 s = sudokuSolver()
 s.getBoard(board)
+noOfEmpty = s.noOfEmpty(board)
 solved = False
 root = Tk()
 
@@ -919,6 +923,12 @@ for i in range(0,len(labels)):
     for j in range(0,len(labels[i])):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
+def call_submit():
+    global submitButtonCount
+    submitButtonCount += 1
+    submit()
+
+
 def changeColor():
     for i in range(0,9):
         for j in range(0,9):
@@ -936,20 +946,35 @@ def changeColor():
                 labels[i][j].configure(bg='#FFFFFF', fg='#000000')
 
 def submit():
-    c=0
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
-    global count
-    for i in range(0,9):
-        for j in range(0,9):
-            if board[i][j] == 0: 
-                c += 1
-    k=0
-    for i in range(0,9):
-        for j in range(0,9):
-            if board[i][j] == 0: 
-                if k <= count:
+    global count,submitButtonCount,noOfEmpty
+    if submitButtonCount%2==0:
+        k=0
+        for i in range(0,9):
+            for j in range(0,9):
+                if board[i][j] == 0: 
+                    if k <= count:
+                        try:
+                            if entryValues[i][j].get() == temp[i][j]:
+                                labels[i][j].configure(bg='#90EE90')
+                            else:
+                                labels[i][j].configure(bg='#FFCCCB')
+                        except:       
+                            labels[i][j].configure(bg='#FFCCCB')
+                        k += 1
+        count += 1
+        if noOfEmpty==count:
+            count=0
+            root.after(3000,changeColor)
+            submitButtonCount=-1
+        else:
+            root.after(100,submit)
+    else:
+        for i in range(0,9):
+            for j in range(0,9):
+                if board[i][j] == 0: 
                     try:
                         if entryValues[i][j].get() == temp[i][j]:
                             labels[i][j].configure(bg='#90EE90')
@@ -957,14 +982,8 @@ def submit():
                             labels[i][j].configure(bg='#FFCCCB')
                     except:       
                         labels[i][j].configure(bg='#FFCCCB')
-                    k += 1
-    count += 1
-    if c==count:
         count=0
         root.after(3000,changeColor)
-    else:
-        root.after(100,submit)
-
     del temp
     del t
 
@@ -983,7 +1002,7 @@ def solve():
     del temp
     del t
 
-submitButton = Button(root, text="Submit", padx=30, pady=10, command=submit)
+submitButton = Button(root, text="Submit", padx=30, pady=10, command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
 
 solveButton = Button(root, text="Solve", padx=36, pady=10, command=solve)
