@@ -1061,8 +1061,21 @@ timeLapse = Label()
 
 def timeTaken():
     global hour,min,sec,timeLapse
-    root.after(1000,timeTaken) 
-    timeLapse.configure(text=str(hour)+":"+str(min)+":"+str(sec))
+    root.after(1000,timeTaken)
+    t = ""
+    if hour<10:
+        t += "0"+str(hour) 
+    else:
+        t += str(hour)
+    if min<10:
+        t += ":0"+str(min)
+    else:
+        t += ":"+str(min)
+    if sec<10:
+        t += ":0"+str(sec)
+    else:
+        t += ":"+str(sec)
+    timeLapse.configure(text=t)
     sec+=1
     if sec==60:
         min += 1
