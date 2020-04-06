@@ -1,9 +1,8 @@
 import requests
 import json
-from time import *
 from copy import deepcopy
 from random import choice
-from tkinter import *
+from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED
 #import timeit
 #start = timeit.default_timer()
 
@@ -247,6 +246,9 @@ s.getBoard(board)
 noOfEmpty = s.noOfEmpty(board)
 solved = False
 algorithm = []
+sec=0
+min=0
+hour=0
 
 root = Tk()
 
@@ -974,6 +976,7 @@ def submit():
     t.solve(temp)
     global count,submitButtonCount,noOfEmpty
     if submitButtonCount%2==0:
+        changeColor()
         k=0
         for i in range(0,9):
             for j in range(0,9):
@@ -995,18 +998,21 @@ def submit():
         else:
             root.after(100,submit)
     else:
-        for i in range(0,9):
-            for j in range(0,9):
-                if board[i][j] == 0: 
-                    try:
-                        if entryValues[i][j].get() == temp[i][j]:
-                            labels[i][j].configure(bg='#90EE90')
-                        else:
+        if submitButtonCount==9999:
+            changeColor()
+        else:
+            for i in range(0,9):
+                for j in range(0,9):
+                    if board[i][j] == 0: 
+                        try:
+                            if entryValues[i][j].get() == temp[i][j]:
+                                labels[i][j].configure(bg='#90EE90')
+                            else:
+                                labels[i][j].configure(bg='#FFCCCB')
+                        except:       
                             labels[i][j].configure(bg='#FFCCCB')
-                    except:       
-                        labels[i][j].configure(bg='#FFCCCB')
-        count=0
-        root.after(3000,changeColor)
+            count=0
+            root.after(3000,changeColor)
     del temp
     del t
 
@@ -1024,18 +1030,21 @@ def solve():
     if(solveButtonCount==0):
         root.after(500,solve)
         root.after((len(algorithm)*500+3000),changeColor)
-
+    else:
+        root.after(500,call_solve)
+        
 def call_solve():
-    global solved,solveButtonCount
+    global solved,solveButtonCount,submitButtonCount
     if not solved:
         submitButton.configure(state=DISABLED)
     solved = True
+    submitButtonCount = 9999
     temp=deepcopy(board)
     t = sudokuSolver()
     solveButtonCount += 1
     if solveButtonCount == 0:
         t.solveGUI(temp)
-        solve()
+        root.after(100,solve)
     else:
         t.solve(temp)
         for i in range(0,9):
@@ -1048,6 +1057,20 @@ def call_solve():
     del temp
     del t
 
+timeLapse = Label()
+
+def timeTaken():
+    global hour,min,sec,timeLapse
+    root.after(1000,timeTaken) 
+    timeLapse.configure(text=str(hour)+":"+str(min)+":"+str(sec))
+    sec+=1
+    if sec==60:
+        min += 1
+        sec = 0
+    if min==60:
+        hour += 1
+        min = 0
+    return str(hour)+":"+str(min)+":"+str(sec)
 
 submitButton = Button(root, text="Submit", padx=30, pady=10, command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
@@ -1055,7 +1078,8 @@ submitButton.grid(row=10, column=0, columnspan=3)
 solveButton = Button(root, text="Solve", padx=36, pady=10, command=call_solve)
 solveButton.grid(row=10, column=2, columnspan=5)
 
-
+timeLapse = Label(root, text=timeTaken(), padx=30, pady=10 )
+timeLapse.grid(row=10, column=6, columnspan=3)
 
 root.mainloop()
 
