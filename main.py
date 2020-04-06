@@ -2,7 +2,7 @@ import requests
 import json
 from copy import deepcopy
 from random import choice
-from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED
+from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL
 #import timeit
 #start = timeit.default_timer()
 
@@ -952,8 +952,11 @@ def call_submit():
     submitButtonCount += 1
     submit()
 
-def changeColor():
-    if solveButtonCount==0:
+def changeColor(): 
+    if not solved:
+        submitButton.configure(state=NORMAL)
+
+    if solveButtonCount==1:
         solveButton.configure(state=DISABLED)
     for i in range(0,9):
         for j in range(0,9):
@@ -1001,6 +1004,7 @@ def submit():
         if submitButtonCount==9999:
             changeColor()
         else:
+            submitButton.configure(state=DISABLED)
             for i in range(0,9):
                 for j in range(0,9):
                     if board[i][j] == 0: 
@@ -1041,6 +1045,7 @@ def call_solve():
     submitButtonCount = 9999
     temp=deepcopy(board)
     t = sudokuSolver()
+    changeColor()
     solveButtonCount += 1
     if solveButtonCount == 0:
         t.solveGUI(temp)
@@ -1085,13 +1090,13 @@ def timeTaken():
         min = 0
     return str(hour)+":"+str(min)+":"+str(sec)
 
-submitButton = Button(root, text="Submit", padx=30, pady=10, command=call_submit)
+submitButton = Button(root, text="Submit", padx=25, pady=10, command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
 
-solveButton = Button(root, text="Solve", padx=36, pady=10, command=call_solve)
+solveButton = Button(root, text="Solve", padx=25, pady=10, command=call_solve)
 solveButton.grid(row=10, column=2, columnspan=5)
 
-timeLapse = Label(root, text=timeTaken(), padx=30, pady=10 )
+timeLapse = Label(root, text=timeTaken(), padx=25, pady=10 )
 timeLapse.grid(row=10, column=6, columnspan=3)
 
 root.mainloop()
