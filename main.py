@@ -119,7 +119,28 @@ class sudokuSolver:
                     return True
                 board[row][col]=0
         return False
-                  
+
+    def solveGUI(self, board):
+        global algorithm
+        x=self.findEmpty(board)
+        if x:
+            row,col=x
+        else:
+            return True
+
+        #Insert 1 to 9 to the position of 0
+        for i in range(1,10):
+            if self.checkIfValid(i,row,col,board):
+                board[row][col]=i
+                li=[True,row,col,i]
+                algorithm.append(li)
+                if self.solveGUI(board):
+                    return True
+                board[row][col]=0
+                li=[False,row,col,0]
+                algorithm.append(li)
+        return False
+
     def checkIfValid(self,value,row,col,board):
         #Row checker
         for i in range(0,9):
@@ -219,11 +240,14 @@ board=[
         ]
 
 submitButtonCount = -1
+solveButtonCount = -1
 count = 0
 s = sudokuSolver()
 s.getBoard(board)
 noOfEmpty = s.noOfEmpty(board)
 solved = False
+algorithm = []
+
 root = Tk()
 
 root.resizable(0,0)
@@ -895,8 +919,6 @@ if board[8][8]==0:
 else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
 
-
-
 labels = [[label00,label01,label02,label03,label04,label05,label06,label07,label08],
           [label10,label11,label12,label13,label14,label15,label16,label17,label18],
           [label20,label21,label22,label23,label24,label25,label26,label27,label28],
@@ -928,8 +950,9 @@ def call_submit():
     submitButtonCount += 1
     submit()
 
-
 def changeColor():
+    if solveButtonCount==0:
+        solveButton.configure(state=DISABLED)
     for i in range(0,9):
         for j in range(0,9):
             if i in [0,1,2,6,7,8]:
@@ -988,24 +1011,48 @@ def submit():
     del t
 
 def solve():
-    global solved
+    global algorithm
+    if len(algorithm)==0:
+        return
+    if algorithm[0][0]==True:
+        entryValues[algorithm[0][1]][algorithm[0][2]].set(algorithm[0][3])
+        labels[algorithm[0][1]][algorithm[0][2]].configure(bg='#87CEEB', fg='#000000')
+    else:
+        entryValues[algorithm[0][1]][algorithm[0][2]].set(algorithm[0][3])
+        labels[algorithm[0][1]][algorithm[0][2]].configure(bg='#FFCCCB', fg='#000000')
+    algorithm.pop(0)
+    if(solveButtonCount==0):
+        root.after(500,solve)
+        root.after((len(algorithm)*500+3000),changeColor)
+
+def call_solve():
+    global solved,solveButtonCount
     if not solved:
         submitButton.configure(state=DISABLED)
     solved = True
     temp=deepcopy(board)
     t = sudokuSolver()
-    t.solve(temp)
-    for i in range(0,9):
-        for j in range(0,9):
-            if board[i][j] == 0:
-                entryValues[i][j].set(temp[i][j])
+    solveButtonCount += 1
+    if solveButtonCount == 0:
+        t.solveGUI(temp)
+        solve()
+    else:
+        t.solve(temp)
+        for i in range(0,9):
+            for j in range(0,9):
+                if board[i][j]==0:
+                    entryValues[i][j].set(temp[i][j])
+                    labels[i][j].configure(bg='#87CEEB', fg='#000000')        
+        root.after(3000,changeColor)        
+        solveButton.configure(state=DISABLED)
     del temp
     del t
+
 
 submitButton = Button(root, text="Submit", padx=30, pady=10, command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
 
-solveButton = Button(root, text="Solve", padx=36, pady=10, command=solve)
+solveButton = Button(root, text="Solve", padx=36, pady=10, command=call_solve)
 solveButton.grid(row=10, column=2, columnspan=5)
 
 
