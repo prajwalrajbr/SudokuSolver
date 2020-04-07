@@ -2,16 +2,42 @@ import requests
 import json
 from copy import deepcopy
 from random import choice
-from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL
+from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL,messagebox,Radiobutton
 #import timeit
 #start = timeit.default_timer()
 
 # api_URL = http://www.cs.utep.edu/cheon/ws/sudoku/new/[?size][&level]
 
+root = Tk()
+root.resizable(0,0)
+
+levels = [
+    ("Easy",1),
+    ("Medium",2),
+    ("Hard",3),
+]
+
+levelTk = IntVar()
+levelTk.set(2)
+
+for text,val in levels:
+    Radiobutton(root, text=text, variable=levelTk, value=val, font=('Verdana',10)).grid(row=2, column=val-1, padx=2, pady=20)
+
+introText = "Sudoku originally called Number Place\n is a logic-based combinatorial number-placement puzzle.\nThe objective is to fill a 9×9 grid with digits so that\n each column, each row, and each of the nine 3×3 subgrids\n that compose the grid (also called \"boxes\", \"blocks\",\n or \"regions\") contain all of the digits from 1 to 9.\nThe puzzle setter provides a partially completed grid,\n which for a well-posed puzzle has a single solution."
+
+introLabel = Label(root, text=introText, font=('Verdana',13))
+introLabel.grid(row=0, column=0, padx=7, pady=20, columnspan=3)
+
+subButton = Button(root, text="Submit", font=('Verdana',10), bg='#000000', fg='#FFFFFF', command=lambda : root.destroy())
+subButton.grid(row=3, column=0, columnspan=3, padx=40)
+
+
+root.mainloop()
+
 class sudokuSolver:
 
     def getBoard(self, board):
-        level = int(input("ENTER THE DIFFICULTY LEVEL:\n1 = EASY\n2 = MEDIUM\n3 = HARD\n"))
+        global level
 
         if level in [1,2,3]:
             try:
@@ -236,8 +262,9 @@ board=[
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0]
-        ]
+]
 
+level = levelTk.get()
 submitButtonCount = -1
 solveButtonCount = -1
 count = 0
@@ -921,6 +948,13 @@ if board[8][8]==0:
 else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
 
+def askForConfirm():
+    msg = messagebox.askokcancel("Confirmation!!!", "Are you sure you want to EXIT ?", icon="warning")
+    if msg:
+        root.destroy()
+
+root.protocol('WM_DELETE_WINDOW',askForConfirm)
+
 labels = [[label00,label01,label02,label03,label04,label05,label06,label07,label08],
           [label10,label11,label12,label13,label14,label15,label16,label17,label18],
           [label20,label21,label22,label23,label24,label25,label26,label27,label28],
@@ -1080,7 +1114,10 @@ def timeTaken():
         t += ":0"+str(sec)
     else:
         t += ":"+str(sec)
-    timeLapse.configure(text=t)
+    if sec%2!=0:
+        timeLapse.configure(text=t, fg="#FFFFFF", bg="#000000")
+    else:
+        timeLapse.configure(text=t, fg="#000000", bg="#FFFFFF")
     sec+=1
     if sec==60:
         min += 1
@@ -1088,15 +1125,15 @@ def timeTaken():
     if min==60:
         hour += 1
         min = 0
-    return str(hour)+":"+str(min)+":"+str(sec)
+    return t
 
-submitButton = Button(root, text="Submit", padx=25, pady=10, command=call_submit)
+submitButton = Button(root, text="Submit", padx=23, pady=10, font=('Verdana',8), bg='#FFCCCB',fg='#000000', command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
 
-solveButton = Button(root, text="Solve", padx=25, pady=10, command=call_solve)
+solveButton = Button(root, text="Solve", padx=23, pady=10, font=('Verdana',8), bg='#87CEEB', fg='#000000', command=call_solve)
 solveButton.grid(row=10, column=2, columnspan=5)
 
-timeLapse = Label(root, text=timeTaken(), padx=25, pady=10 )
+timeLapse = Label(root, text=timeTaken(), padx=23, pady=10, font=('Verdana',8), fg="#000000", bg="#FFFFFF")
 timeLapse.grid(row=10, column=6, columnspan=3)
 
 root.mainloop()
