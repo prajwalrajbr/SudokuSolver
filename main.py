@@ -14,17 +14,14 @@ root.resizable(0,0)
 
 root.protocol('WM_DELETE_WINDOW',lambda : sys.exit())
 
-levels = [
-    ("Easy",1),
-    ("Medium",2),
-    ("Hard",3),
-]
-
 levelTk = IntVar()
 levelTk.set(2)
 
-for text,val in levels:
-    Radiobutton(root, text=text, variable=levelTk, value=val, font=('Verdana',10)).grid(row=2, column=val-1, padx=2, pady=3)
+Radiobutton(root, text="Easy", variable=levelTk, value=1, bg='#90EE90', font=('Verdana',10), padx=50, pady=3).grid(row=2, column=0, columnspan=1)
+Radiobutton(root, text="Medium", variable=levelTk, value=2,bg='#FFFF9E', font=('Verdana',10), padx=50, pady=3).grid(row=2, column=1, columnspan=1)
+Radiobutton(root, text="Hard", variable=levelTk, value=3, bg='#FF6961', font=('Verdana',10), padx=50, pady=3).grid(row=2, column=2, columnspan=1)
+
+
 
 introText = "Sudoku originally called Number Place\n is a logic-based combinatorial number-placement puzzle.\nThe objective is to fill a 9×9 grid with digits so that\n each column, each row, and each of the nine 3×3 subgrids\n that compose the grid (also called \"boxes\", \"blocks\",\n or \"regions\") contain all of the digits from 1 to 9.\nThe puzzle setter provides a partially completed grid,\n which for a well-posed puzzle has a single solution."
 
@@ -33,8 +30,8 @@ introLabel.grid(row=0, column=0, padx=7, pady=3, columnspan=3)
 
 root.bind('<Return>', lambda *args : root.destroy())
 
-stButton = Button(root, text="Start",width=20, font=('Verdana',10), bg='#000000', fg='#FFFFFF', command=lambda : root.destroy())
-stButton.grid(row=3, column=0, pady=3, columnspan=3)
+stButton = Button(root, text="Start",width=45, font=('Verdana',13), bg='#000000', fg='#FFFFFF', command=lambda : root.destroy())
+stButton.grid(row=3, column=0, ipady=5, pady=5, columnspan=3)
 
 
 root.mainloop()
