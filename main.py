@@ -1,8 +1,9 @@
 import requests
 import json
+import sys
 from copy import deepcopy
 from random import choice
-from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL,messagebox,Radiobutton
+from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL,messagebox,Radiobutton,Toplevel
 #import timeit
 #start = timeit.default_timer()
 
@@ -10,6 +11,8 @@ from tkinter import Button,Entry,Tk,IntVar,END,Label,DISABLED,NORMAL,messagebox,
 
 root = Tk()
 root.resizable(0,0)
+
+root.protocol('WM_DELETE_WINDOW',lambda : sys.exit())
 
 levels = [
     ("Easy",1),
@@ -21,15 +24,17 @@ levelTk = IntVar()
 levelTk.set(2)
 
 for text,val in levels:
-    Radiobutton(root, text=text, variable=levelTk, value=val, font=('Verdana',10)).grid(row=2, column=val-1, padx=2, pady=20)
+    Radiobutton(root, text=text, variable=levelTk, value=val, font=('Verdana',10)).grid(row=2, column=val-1, padx=2, pady=3)
 
 introText = "Sudoku originally called Number Place\n is a logic-based combinatorial number-placement puzzle.\nThe objective is to fill a 9×9 grid with digits so that\n each column, each row, and each of the nine 3×3 subgrids\n that compose the grid (also called \"boxes\", \"blocks\",\n or \"regions\") contain all of the digits from 1 to 9.\nThe puzzle setter provides a partially completed grid,\n which for a well-posed puzzle has a single solution."
 
-introLabel = Label(root, text=introText, font=('Verdana',13))
-introLabel.grid(row=0, column=0, padx=7, pady=20, columnspan=3)
+introLabel = Label(root, text=introText, font=('Verdana',12))
+introLabel.grid(row=0, column=0, padx=7, pady=3, columnspan=3)
 
-subButton = Button(root, text="Submit", font=('Verdana',10), bg='#000000', fg='#FFFFFF', command=lambda : root.destroy())
-subButton.grid(row=3, column=0, columnspan=3, padx=40)
+root.bind('<Return>', lambda *args : root.destroy())
+
+stButton = Button(root, text="Start",width=20, font=('Verdana',10), bg='#000000', fg='#FFFFFF', command=lambda : root.destroy())
+stButton.grid(row=3, column=0, pady=3, columnspan=3)
 
 
 root.mainloop()
@@ -85,7 +90,7 @@ class sudokuSolver:
                 
                 #Rotate the board randomly to hide shifting
                 tempBoard=deepcopy(board)
-                for k in range(0,choice([1,2,3])):
+                for _ in range(0,choice([1,2,3])):
                     for i in range(0,9):
                         for j in range(0,9):
                             board[i][j]=tempBoard[j][8-i]
@@ -276,6 +281,7 @@ algorithm = []
 sec=0
 min=0
 hour=0
+attempt=0
 
 root = Tk()
 
@@ -948,6 +954,33 @@ if board[8][8]==0:
 else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
 
+def newWin():
+    global attempt,sec,hour,min
+    newWin = Toplevel(root)
+    
+    newWin.bind('<Return>', lambda *args : sys.exit())
+    newWin.resizable(0,0)
+    at = "Attempt : "+str(int(attempt))
+    attemptLabel = Label(newWin, text=at, padx=10, pady=10)
+    attemptLabel.grid(row=0, column=0)
+    t = "Time taken : "
+    if hour<10:
+        t += "0"+str(hour) 
+    else:
+        t += str(hour)
+    if min<10:
+        t += ":0"+str(min)
+    else:
+        t += ":"+str(min)
+    if sec<10:
+        t += ":0"+str(sec)
+    else:
+        t += ":"+str(sec)
+    timeLabel = Label(newWin, text=t, padx=10, pady=10)
+    timeLabel.grid(row=1, column=0)
+    okButtton = Button(newWin, text='Ok', command=lambda : sys.exit())
+    okButtton.grid(row=2, column=0, columnspan=1)
+    
 def askForConfirm():
     msg = messagebox.askokcancel("Confirmation!!!", "Are you sure you want to EXIT ?", icon="warning")
     if msg:
@@ -981,8 +1014,9 @@ for i in range(0,len(labels)):
     for j in range(0,len(labels[i])):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
-def call_submit():
-    global submitButtonCount
+def call_submit(*args):
+    global submitButtonCount,attempt
+    attempt += 1
     submitButtonCount += 1
     submit()
 
@@ -1011,7 +1045,7 @@ def submit():
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
-    global count,submitButtonCount,noOfEmpty
+    global count,submitButtonCount,noOfEmpty,attempt
     if submitButtonCount%2==0:
         changeColor()
         k=0
@@ -1038,6 +1072,7 @@ def submit():
         if submitButtonCount==9999:
             changeColor()
         else:
+            attempt -= .5
             submitButton.configure(state=DISABLED)
             for i in range(0,9):
                 for j in range(0,9):
@@ -1057,6 +1092,10 @@ def submit():
 def solve():
     global algorithm
     if len(algorithm)==0:
+        
+        solveButton.configure(state=DISABLED)
+        newWin()
+
         return
     if algorithm[0][0]==True:
         entryValues[algorithm[0][1]][algorithm[0][2]].set(algorithm[0][3])
@@ -1071,7 +1110,7 @@ def solve():
     else:
         root.after(500,call_solve)
         
-def call_solve():
+def call_solve(*args):
     global solved,solveButtonCount,submitButtonCount
     if not solved:
         submitButton.configure(state=DISABLED)
@@ -1091,14 +1130,17 @@ def call_solve():
                 if board[i][j]==0:
                     entryValues[i][j].set(temp[i][j])
                     labels[i][j].configure(bg='#87CEEB', fg='#000000')        
-        root.after(3000,changeColor)        
-        solveButton.configure(state=DISABLED)
+        root.after(3000,changeColor)  
+        algorithm.clear()   
+        solveButton.configure(state=DISABLED)  
     del temp
     del t
 
 timeLapse = Label()
 
 def timeTaken():
+    if solved:
+        return
     global hour,min,sec,timeLapse
     root.after(1000,timeTaken)
     t = ""
