@@ -1096,14 +1096,14 @@ def solve():
         return
     if algorithm[0][0]==True:
         entryValues[algorithm[0][1]][algorithm[0][2]].set(algorithm[0][3])
-        labels[algorithm[0][1]][algorithm[0][2]].configure(bg='#87CEEB', fg='#000000')
+        labels[algorithm[0][1]][algorithm[0][2]].configure(state=DISABLED, disabledbackground='#87CEEB', disabledforeground='#000000')
     else:
         entryValues[algorithm[0][1]][algorithm[0][2]].set(algorithm[0][3])
-        labels[algorithm[0][1]][algorithm[0][2]].configure(bg='#FFCCCB', fg='#000000')
+        labels[algorithm[0][1]][algorithm[0][2]].configure(state=DISABLED, disabledbackground='#FFCCCB', disabledforeground='#000000')
     algorithm.pop(0)
     if(solveButtonCount==0):
-        root.after(500,solve)
-        root.after((len(algorithm)*500+3000),changeColor)
+        root.after(250,solve)
+        root.after((len(algorithm)*250+3000),changeColor)
     else:
         root.after(500,call_solve)
         
@@ -1126,7 +1126,7 @@ def call_solve(*args):
             for j in range(0,9):
                 if board[i][j]==0:
                     entryValues[i][j].set(temp[i][j])
-                    labels[i][j].configure(bg='#87CEEB', fg='#000000')        
+                    labels[i][j].configure(state=DISABLED, disabledbackground='#87CEEB', disabledforeground='#000000')        
         root.after(3000,changeColor)  
         algorithm.clear()   
         solveButton.configure(state=DISABLED)  
