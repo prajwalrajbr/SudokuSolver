@@ -279,6 +279,8 @@ sec=0
 min=0
 hour=0
 attempt=0
+error=0
+newWinCount=False
 
 root = Tk()
 
@@ -952,9 +954,15 @@ else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
 
 def newWin():
+    global newWinCount
+    if not newWinCount:
+        newWinCount=True
+    else:
+        return
     global attempt,sec,hour,min
     newWin = Toplevel(root)
     
+    newWin.protocol('WM_DELETE_WINDOW', lambda *args : sys.exit())
     newWin.bind('<Return>', lambda *args : sys.exit())
     newWin.resizable(0,0)
     at = "Attempt : "+str(int(attempt))
@@ -1012,9 +1020,10 @@ for i in range(0,len(labels)):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
 def call_submit(*args):
-    global submitButtonCount,attempt
+    global submitButtonCount,attempt,error
     attempt += 1
     submitButtonCount += 1
+    error=0
     submit()
 
 def changeColor(): 
@@ -1042,7 +1051,7 @@ def submit():
     temp=deepcopy(board)
     t = sudokuSolver()
     t.solve(temp)
-    global count,submitButtonCount,noOfEmpty,attempt
+    global count,submitButtonCount,noOfEmpty,attempt,error,solved
     if submitButtonCount%2==0:
         changeColor()
         k=0
@@ -1055,11 +1064,16 @@ def submit():
                                 labels[i][j].configure(bg='#90EE90')
                             else:
                                 labels[i][j].configure(bg='#FFCCCB')
+                                error += 1
                         except:       
                             labels[i][j].configure(bg='#FFCCCB')
+                            error += 1
                         k += 1
         count += 1
         if noOfEmpty==count:
+            if error==0:
+                solved=True
+                newWin()
             count=0
             root.after(3000,changeColor)
             submitButtonCount=-1
@@ -1079,9 +1093,14 @@ def submit():
                                 labels[i][j].configure(bg='#90EE90')
                             else:
                                 labels[i][j].configure(bg='#FFCCCB')
+                                error += 1
                         except:       
                             labels[i][j].configure(bg='#FFCCCB')
+                            error += 1
             count=0
+            if error==0:
+                solved=True
+                newWin()
             root.after(3000,changeColor)
     del temp
     del t
@@ -1153,10 +1172,11 @@ def timeTaken():
         t += ":0"+str(sec)
     else:
         t += ":"+str(sec)
-    if sec%2!=0:
+    if sec%2==0:
         timeLapse.configure(text=t, fg="#FFFFFF", bg="#000000")
     else:
         timeLapse.configure(text=t, fg="#000000", bg="#FFFFFF")
+    
     sec+=1
     if sec==60:
         min += 1
