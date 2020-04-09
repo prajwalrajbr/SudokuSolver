@@ -966,9 +966,10 @@ def newWin():
     newWin.bind('<Return>', lambda *args : sys.exit())
     newWin.resizable(0,0)
     at = "Attempt : "+str(int(attempt))
-    attemptLabel = Label(newWin, text=at, padx=10, pady=10)
+    attemptLabel = Label(newWin, text=at, padx=55, pady=10, bg='#FFCCCB', fg='#000000', font=('Verdana',10))
     attemptLabel.grid(row=0, column=0)
     t = "Time taken : "
+    sec -= 1
     if hour<10:
         t += "0"+str(hour) 
     else:
@@ -981,9 +982,9 @@ def newWin():
         t += ":0"+str(sec)
     else:
         t += ":"+str(sec)
-    timeLabel = Label(newWin, text=t, padx=10, pady=10)
+    timeLabel = Label(newWin, text=t, padx=20, pady=10, bg='#87CEEB', fg='#000000', font=('Verdana',10))
     timeLabel.grid(row=1, column=0)
-    okButtton = Button(newWin, text='Ok', command=lambda : sys.exit())
+    okButtton = Button(newWin, text='Ok', command=lambda : sys.exit(),width=12, font=('Verdana',10), bg='#000000', fg='#FFFFFF')
     okButtton.grid(row=2, column=0, columnspan=1)
     
 def askForConfirm():
@@ -1172,12 +1173,12 @@ def timeTaken():
         t += ":0"+str(sec)
     else:
         t += ":"+str(sec)
+    sec+=1
     if sec%2==0:
         timeLapse.configure(text=t, fg="#FFFFFF", bg="#000000")
     else:
         timeLapse.configure(text=t, fg="#000000", bg="#FFFFFF")
     
-    sec+=1
     if sec==60:
         min += 1
         sec = 0
