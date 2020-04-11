@@ -19,8 +19,10 @@ except:
 root = Tk()
 root.resizable(0,0)
 root.title('Sudoku - 9x9')
-root.iconbitmap('sudoku.ico')
-
+try:
+    root.iconbitmap('sudoku.ico')
+except:
+    pass
 root.protocol('WM_DELETE_WINDOW',lambda : sys.exit())
 
 levelTk = IntVar()
@@ -294,7 +296,10 @@ newWinCount=False
 root = Tk()
 root.resizable(0,0)
 root.title('Sudoku - 9x9')
-root.iconbitmap('sudoku.ico')
+try:
+    root.iconbitmap('sudoku.ico')
+except:
+    pass
 
 
 label00Value = IntVar() 
@@ -973,7 +978,10 @@ def newWin():
     global attempt,sec,hour,min
     newWin = Toplevel(root)
     newWin.title('Sudoku - 9x9')
-    newWin.iconbitmap('sudoku.ico')
+    try:
+        newWin.iconbitmap('sudoku.ico')
+    except:
+        pass    
     
     newWin.protocol('WM_DELETE_WINDOW', lambda *args : sys.exit())
     newWin.bind('<Return>', lambda *args : sys.exit())
