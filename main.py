@@ -1041,11 +1041,29 @@ def call_submit(*args):
     submit()
 
 def changeColor(): 
+    global board
     if not solved:
         submitButton.configure(state=NORMAL)
 
     if solveButtonCount==1:
+
         solveButton.configure(state=DISABLED)
+        for i in range(0,9):
+            for j in range(0,9):
+                if board[i][j]==0:
+                    if i in [0,1,2,6,7,8]:
+                        if j in [0,1,2,6,7,8]:
+                            labels[i][j].configure(state=DISABLED, disabledbackground='#C0C0C0', disabledforeground='#000000')
+                        else:
+                            labels[i][j].configure(state=DISABLED, disabledbackground='#FFFFFF', disabledforeground='#000000')
+                    elif i in [3,4,5]:
+                        if j in [3,4,5]:
+                            labels[i][j].configure(state=DISABLED, disabledbackground='#C0C0C0', disabledforeground='#000000')
+                        else:
+                            labels[i][j].configure(state=DISABLED, disabledbackground='#FFFFFF', disabledforeground='#000000')
+                    else:
+                        labels[i][j].configure(bg='#FFFFFF', fg='#000000')
+                
     for i in range(0,9):
         for j in range(0,9):
             if i in [0,1,2,6,7,8]:
@@ -1120,11 +1138,13 @@ def submit():
     del t
 
 def solve():
-    global algorithm
+    global algorithm,solveButtonCount
     if len(algorithm)==0:
         
         solveButton.configure(state=DISABLED)
-        newWin()
+        solveButtonCount=1
+        root.after(3000,changeColor)
+        root.after(3000,newWin)
 
         return
     if algorithm[0][0]==True:
@@ -1162,6 +1182,7 @@ def call_solve(*args):
                     labels[i][j].configure(state=DISABLED, disabledbackground='#87CEEB', disabledforeground='#000000')        
         root.after(3000,changeColor)  
         algorithm.clear()   
+        solve()
         solveButton.configure(state=DISABLED)  
     del temp
     del t
