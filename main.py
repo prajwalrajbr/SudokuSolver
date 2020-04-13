@@ -313,6 +313,7 @@ error=0
 newWinCount=False
 
 root = Tk()
+root.focus_force()
 root.resizable(0,0)
 root.title('Sudoku - 9x9')
 try:
@@ -419,7 +420,7 @@ if board[0][0]==0:
                 label00Value.set(str(label00Value.get())[-1])
             except:
                 label00Value.set(0)
-    label00 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label00Value)
+    label00 = Entry(root, cursor='hand2', bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label00Value)
     label00Value.trace("w",lambda *args: keyPress00())
 else:
     label00 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][0])+" ", borderwidth=1, relief='groove')
@@ -430,7 +431,7 @@ if board[0][1]==0:
                 label01Value.set(str(label01Value.get())[-1])
             except:
                 label01Value.set(0)
-    label01 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label01Value)
+    label01 = Entry(root, cursor='hand2', bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label01Value)
     label01Value.trace("w",lambda *args: keyPress01())
 else:   
     label01 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][1])+" ", borderwidth=1, relief='groove')
@@ -441,7 +442,7 @@ if board[0][2]==0:
                 label02Value.set(str(label02Value.get())[-1])
             except:
                 label02Value.set(0)
-    label02 = Entry(root, bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label02Value)
+    label02 = Entry(root, cursor='hand2', bd=1, bg='#C0C0C0', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label02Value)
     label02Value.trace("w",lambda *args: keyPress02())
 else:    
     label02 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][2])+" ", borderwidth=1, relief='groove')
@@ -452,7 +453,7 @@ if board[0][3]==0:
                 label03Value.set(str(label03Value.get())[-1])
             except:
                 label03Value.set(0)
-    label03 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label03Value)
+    label03 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label03Value)
     label03Value.trace("w",lambda *args: keyPress03())
 else:    
     label03 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[0][3]))
@@ -463,7 +464,7 @@ if board[0][4]==0:
                 label04Value.set(str(label04Value.get())[-1])
             except:
                 label04Value.set(0)
-    label04 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label04Value)
+    label04 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label04Value)
     label04Value.trace("w",lambda *args: keyPress04())
 else:    
     label04 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[0][4]))
@@ -474,7 +475,7 @@ if board[0][5]==0:
                 label05Value.set(str(label05Value.get())[-1])
             except:
                 label05Value.set(0)
-    label05 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label05Value)
+    label05 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label05Value)
     label05Value.trace("w",lambda *args: keyPress05())
 else:    
     label05 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[0][5]))
@@ -485,7 +486,7 @@ if board[0][6]==0:
                 label06Value.set(str(label06Value.get())[-1])
             except:
                 label06Value.set(0)
-    label06 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label06Value)
+    label06 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label06Value)
     label06Value.trace("w",lambda *args: keyPress06())
 else:    
     label06 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][6])+" ", borderwidth=1, relief='groove')
@@ -496,7 +497,7 @@ if board[0][7]==0:
                 label07Value.set(str(label07Value.get())[-1])
             except:
                 label07Value.set(0)
-    label07 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label07Value)
+    label07 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label07Value)
     label07Value.trace("w",lambda *args: keyPress07())
 else:    
     label07 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][7])+" ", borderwidth=1, relief='groove')
@@ -507,7 +508,7 @@ if board[0][8]==0:
                 label08Value.set(str(label08Value.get())[-1])
             except:
                 label08Value.set(0)
-    label08 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label08Value)
+    label08 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label08Value)
     label08Value.trace("w",lambda *args: keyPress08())
 else:    
     label08 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[0][8])+" ", borderwidth=1, relief='groove')
@@ -519,7 +520,7 @@ if board[1][0]==0:
                 label10Value.set(str(label10Value.get())[-1])
             except:
                 label10Value.set(0)
-    label10 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label10Value)
+    label10 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label10Value)
     label10Value.trace("w",lambda *args: keyPress10())
 else:
     label10 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][0])+" ", borderwidth=1, relief='groove')
@@ -530,7 +531,7 @@ if board[1][1]==0:
                 label11Value.set(str(label11Value.get())[-1])
             except:
                 label11Value.set(0)
-    label11 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label11Value)
+    label11 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label11Value)
     label11Value.trace("w",lambda *args: keyPress11())
 else:    
     label11 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][1])+" ", borderwidth=1, relief='groove')
@@ -541,7 +542,7 @@ if board[1][2]==0:
                 label12Value.set(str(label12Value.get())[-1])
             except:
                 label12Value.set(0)
-    label12 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label12Value)
+    label12 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label12Value)
     label12Value.trace("w",lambda *args: keyPress12())
 else:   
     label12 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][2])+" ", borderwidth=1, relief='groove')
@@ -552,7 +553,7 @@ if board[1][3]==0:
                 label13Value.set(str(label13Value.get())[-1])
             except:
                 label13Value.set(0)
-    label13 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label13Value)
+    label13 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label13Value)
     label13Value.trace("w",lambda *args: keyPress13())
 else:    
     label13 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[1][3]))
@@ -563,7 +564,7 @@ if board[1][4]==0:
                 label14Value.set(str(label14Value.get())[-1])
             except:
                 label14Value.set(0)
-    label14 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label14Value)
+    label14 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label14Value)
     label14Value.trace("w",lambda *args: keyPress14())
 else:
     label14 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[1][4]))
@@ -574,7 +575,7 @@ if board[1][5]==0:
                 label15Value.set(str(label15Value.get())[-1])
             except:
                 label15Value.set(0)
-    label15 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label15Value)
+    label15 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label15Value)
     label15Value.trace("w",lambda *args: keyPress15())
 else:
     label15 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[1][5]))
@@ -585,7 +586,7 @@ if board[1][6]==0:
                 label16Value.set(str(label16Value.get())[-1])
             except:
                 label16Value.set(0)
-    label16 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label16Value)
+    label16 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label16Value)
     label16Value.trace("w",lambda *args: keyPress16())
 else:
     label16 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][6])+" ", borderwidth=1, relief='groove')
@@ -596,7 +597,7 @@ if board[1][7]==0:
                 label17Value.set(str(label17Value.get())[-1])
             except:
                 label17Value.set(0)
-    label17 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label17Value)
+    label17 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label17Value)
     label17Value.trace("w",lambda *args: keyPress17())
 else:
     label17 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][7])+" ", borderwidth=1, relief='groove')
@@ -607,7 +608,7 @@ if board[1][8]==0:
                 label18Value.set(str(label18Value.get())[-1])
             except:
                 label18Value.set(0)
-    label18 = Entry(root, bg='#C0C0C0', fg='#000000', bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label18Value)
+    label18 = Entry(root, bg='#C0C0C0', fg='#000000', cursor='hand2', bd=1, width=2, font=('Verdana',8), justify='center', textvariable=label18Value)
     label18Value.trace("w",lambda *args: keyPress18())
 else:
     label18 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[1][8])+" ", borderwidth=1, relief='groove')
@@ -619,7 +620,7 @@ if board[2][0]==0:
                 label20Value.set(str(label20Value.get())[-1])
             except:
                 label20Value.set(0)
-    label20 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label20Value)
+    label20 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label20Value)
     label20Value.trace("w",lambda *args: keyPress20())
 else:
     label20 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][0])+" ", borderwidth=1, relief='groove')
@@ -630,7 +631,7 @@ if board[2][1]==0:
                 label21Value.set(str(label21Value.get())[-1])
             except:
                 label21Value.set(0)
-    label21 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label21Value)
+    label21 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label21Value)
     label21Value.trace("w",lambda *args: keyPress21())
 else:
     label21 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][1])+" ", borderwidth=1, relief='groove')
@@ -641,7 +642,7 @@ if board[2][2]==0:
                 label22Value.set(str(label22Value.get())[-1])
             except:
                 label22Value.set(0)
-    label22 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label22Value)
+    label22 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label22Value)
     label22Value.trace("w",lambda *args: keyPress22())
 else:
     label22 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][2])+" ", borderwidth=1, relief='groove')
@@ -652,7 +653,7 @@ if board[2][3]==0:
                 label23Value.set(str(label23Value.get())[-1])
             except:
                 label23Value.set(0)
-    label23 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label23Value)
+    label23 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label23Value)
     label23Value.trace("w",lambda *args: keyPress23())
 else:
     label23 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[2][3]))
@@ -663,7 +664,7 @@ if board[2][4]==0:
                 label24Value.set(str(label24Value.get())[-1])
             except:
                 label24Value.set(0)
-    label24 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label24Value)
+    label24 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label24Value)
     label24Value.trace("w",lambda *args: keyPress24())
 else:
     label24 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[2][4]))
@@ -674,7 +675,7 @@ if board[2][5]==0:
                 label25Value.set(str(label25Value.get())[-1])
             except:
                 label25Value.set(0)
-    label25 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label25Value)
+    label25 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label25Value)
     label25Value.trace("w",lambda *args: keyPress25())
 else:
     label25 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[2][5]))
@@ -685,7 +686,7 @@ if board[2][6]==0:
                 label26Value.set(str(label26Value.get())[-1])
             except:
                 label26Value.set(0)
-    label26 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label26Value)
+    label26 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label26Value)
     label26Value.trace("w",lambda *args: keyPress26())
 else:
     label26 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][6])+" ", borderwidth=1, relief='groove')
@@ -696,7 +697,7 @@ if board[2][7]==0:
                 label27Value.set(str(label27Value.get())[-1])
             except:
                 label27Value.set(0)
-    label27 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label27Value)
+    label27 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label27Value)
     label27Value.trace("w",lambda *args: keyPress27())
 else:
     label27 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][7])+" ", borderwidth=1, relief='groove')
@@ -707,7 +708,7 @@ if board[2][8]==0:
                 label28Value.set(str(label28Value.get())[-1])
             except:
                 label28Value.set(0)
-    label28 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label28Value)
+    label28 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label28Value)
     label28Value.trace("w",lambda *args: keyPress28())
 else:
     label28 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[2][8])+" ", borderwidth=1, relief='groove')
@@ -719,7 +720,7 @@ if board[3][0]==0:
                 label30Value.set(str(label30Value.get())[-1])
             except:
                 label30Value.set(0)
-    label30 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label30Value)
+    label30 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label30Value)
     label30Value.trace("w",lambda *args: keyPress30())
 else:
     label30 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][0]))
@@ -730,7 +731,7 @@ if board[3][1]==0:
                 label31Value.set(str(label31Value.get())[-1])
             except:
                 label31Value.set(0)
-    label31 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label31Value)
+    label31 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label31Value)
     label31Value.trace("w",lambda *args: keyPress31())
 else:
     label31 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][1]))
@@ -741,7 +742,7 @@ if board[3][2]==0:
                 label32Value.set(str(label32Value.get())[-1])
             except:
                 label32Value.set(0)
-    label32 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label32Value)
+    label32 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label32Value)
     label32Value.trace("w",lambda *args: keyPress32())
 else:
     label32 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][2]))
@@ -752,7 +753,7 @@ if board[3][3]==0:
                 label33Value.set(str(label33Value.get())[-1])
             except:
                 label33Value.set(0)
-    label33 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label33Value)
+    label33 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label33Value)
     label33Value.trace("w",lambda *args: keyPress33())
 else:
     label33 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][3])+" ", borderwidth=1, relief='groove')
@@ -763,7 +764,7 @@ if board[3][4]==0:
                 label34Value.set(str(label34Value.get())[-1])
             except:
                 label34Value.set(0)
-    label34 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label34Value)
+    label34 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label34Value)
     label34Value.trace("w",lambda *args: keyPress34())
 else:
     label34 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][4])+" ", borderwidth=1, relief='groove')
@@ -774,7 +775,7 @@ if board[3][5]==0:
                 label35Value.set(str(label35Value.get())[-1])
             except:
                 label35Value.set(0)
-    label35 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label35Value)
+    label35 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label35Value)
     label35Value.trace("w",lambda *args: keyPress35())
 else:
     label35 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[3][5])+" ", borderwidth=1, relief='groove')
@@ -785,7 +786,7 @@ if board[3][6]==0:
                 label36Value.set(str(label36Value.get())[-1])
             except:
                 label36Value.set(0)
-    label36 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label36Value)
+    label36 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label36Value)
     label36Value.trace("w",lambda *args: keyPress36())
 else:
     label36 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][6]))
@@ -796,7 +797,7 @@ if board[3][7]==0:
                 label37Value.set(str(label37Value.get())[-1])
             except:
                 label37Value.set(0)
-    label37 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label37Value)
+    label37 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label37Value)
     label37Value.trace("w",lambda *args: keyPress37())
 else:
     label37 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][7]))
@@ -807,7 +808,7 @@ if board[3][8]==0:
                 label38Value.set(str(label38Value.get())[-1])
             except:
                 label38Value.set(0)
-    label38 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label38Value)
+    label38 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label38Value)
     label38Value.trace("w",lambda *args: keyPress38())
 else:
     label38 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[3][8]))
@@ -819,7 +820,7 @@ if board[4][0]==0:
                 label40Value.set(str(label40Value.get())[-1])
             except:
                 label40Value.set(0)
-    label40 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label40Value)
+    label40 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label40Value)
     label40Value.trace("w",lambda *args: keyPress40())
 else:
     label40 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][0]))
@@ -830,7 +831,7 @@ if board[4][1]==0:
                 label41Value.set(str(label41Value.get())[-1])
             except:
                 label41Value.set(0)
-    label41 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label41Value)
+    label41 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label41Value)
     label41Value.trace("w",lambda *args: keyPress41())
 else:
     label41 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][1]))
@@ -841,7 +842,7 @@ if board[4][2]==0:
                 label42Value.set(str(label42Value.get())[-1])
             except:
                 label42Value.set(0)
-    label42 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label42Value)
+    label42 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label42Value)
     label42Value.trace("w",lambda *args: keyPress42())
 else:
     label42 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][2]))
@@ -852,7 +853,7 @@ if board[4][3]==0:
                 label43Value.set(str(label43Value.get())[-1])
             except:
                 label43Value.set(0)
-    label43 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label43Value)
+    label43 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label43Value)
     label43Value.trace("w",lambda *args: keyPress43())
 else:
     label43 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][3])+" ", borderwidth=1, relief='groove')
@@ -863,7 +864,7 @@ if board[4][4]==0:
                 label44Value.set(str(label44Value.get())[-1])
             except:
                 label44Value.set(0)
-    label44 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label44Value)
+    label44 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label44Value)
     label44Value.trace("w",lambda *args: keyPress44())
 else:
     label44 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][4])+" ", borderwidth=1, relief='groove')
@@ -874,7 +875,7 @@ if board[4][5]==0:
                 label45Value.set(str(label45Value.get())[-1])
             except:
                 label45Value.set(0)
-    label45 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label45Value)
+    label45 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label45Value)
     label45Value.trace("w",lambda *args: keyPress45())
 else:
     label45 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[4][5])+" ", borderwidth=1, relief='groove')
@@ -885,7 +886,7 @@ if board[4][6]==0:
                 label46Value.set(str(label46Value.get())[-1])
             except:
                 label46Value.set(0)
-    label46 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label46Value)
+    label46 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label46Value)
     label46Value.trace("w",lambda *args: keyPress46())
 else:
     label46 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][6]))
@@ -896,7 +897,7 @@ if board[4][7]==0:
                 label47Value.set(str(label47Value.get())[-1])
             except:
                 label47Value.set(0)
-    label47 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label47Value)
+    label47 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label47Value)
     label47Value.trace("w",lambda *args: keyPress47())
 else:
     label47 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][7]))
@@ -907,7 +908,7 @@ if board[4][8]==0:
                 label48Value.set(str(label48Value.get())[-1])
             except:
                 label48Value.set(0)
-    label48 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label48Value)
+    label48 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label48Value)
     label48Value.trace("w",lambda *args: keyPress48())
 else:
     label48 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[4][8]))
@@ -919,7 +920,7 @@ if board[5][0]==0:
                 label50Value.set(str(label50Value.get())[-1])
             except:
                 label50Value.set(0)
-    label50 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label50Value)
+    label50 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label50Value)
     label50Value.trace("w",lambda *args: keyPress50())
 else:
     label50 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][0]))
@@ -930,7 +931,7 @@ if board[5][1]==0:
                 label51Value.set(str(label51Value.get())[-1])
             except:
                 label51Value.set(0)
-    label51 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label51Value)
+    label51 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label51Value)
     label51Value.trace("w",lambda *args: keyPress51())
 else:
     label51 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][1]))
@@ -941,7 +942,7 @@ if board[5][2]==0:
                 label52Value.set(str(label52Value.get())[-1])
             except:
                 label52Value.set(0)
-    label52 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label52Value)
+    label52 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label52Value)
     label52Value.trace("w",lambda *args: keyPress52())
 else:
     label52 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][2]))
@@ -952,7 +953,7 @@ if board[5][3]==0:
                 label53Value.set(str(label53Value.get())[-1])
             except:
                 label53Value.set(0)
-    label53 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label53Value)
+    label53 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label53Value)
     label53Value.trace("w",lambda *args: keyPress53())
 else:
     label53 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][3])+" ", borderwidth=1, relief='groove')
@@ -963,7 +964,7 @@ if board[5][4]==0:
                 label54Value.set(str(label54Value.get())[-1])
             except:
                 label54Value.set(0)
-    label54 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label54Value)
+    label54 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label54Value)
     label54Value.trace("w",lambda *args: keyPress54())
 else:
     label54 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][4])+" ", borderwidth=1, relief='groove')
@@ -974,7 +975,7 @@ if board[5][5]==0:
                 label55Value.set(str(label55Value.get())[-1])
             except:
                 label55Value.set(0)
-    label55 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label55Value)
+    label55 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label55Value)
     label55Value.trace("w",lambda *args: keyPress55())
 else:
     label55 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[5][5])+" ", borderwidth=1, relief='groove')
@@ -985,7 +986,7 @@ if board[5][6]==0:
                 label56Value.set(str(label56Value.get())[-1])
             except:
                 label56Value.set(0)
-    label56 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label56Value)
+    label56 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label56Value)
     label56Value.trace("w",lambda *args: keyPress56())
 else:
     label56 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][6]))
@@ -996,7 +997,7 @@ if board[5][7]==0:
                 label57Value.set(str(label57Value.get())[-1])
             except:
                 label57Value.set(0)
-    label57 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label57Value)
+    label57 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label57Value)
     label57Value.trace("w",lambda *args: keyPress57())
 else:
     label57 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][7]))
@@ -1007,7 +1008,7 @@ if board[5][8]==0:
                 label58Value.set(str(label58Value.get())[-1])
             except:
                 label58Value.set(0)
-    label58 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label58Value)
+    label58 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label58Value)
     label58Value.trace("w",lambda *args: keyPress58())
 else:
     label58 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[5][8]))
@@ -1019,7 +1020,7 @@ if board[6][0]==0:
                 label60Value.set(str(label60Value.get())[-1])
             except:
                 label60Value.set(0)
-    label60 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label60Value)
+    label60 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label60Value)
     label60Value.trace("w",lambda *args: keyPress60())
 else:
     label60 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][0])+" ", borderwidth=1, relief='groove')
@@ -1030,7 +1031,7 @@ if board[6][1]==0:
                 label61Value.set(str(label61Value.get())[-1])
             except:
                 label61Value.set(0)
-    label61 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label61Value)
+    label61 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label61Value)
     label61Value.trace("w",lambda *args: keyPress61())
 else:
     label61 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][1])+" ", borderwidth=1, relief='groove')
@@ -1041,7 +1042,7 @@ if board[6][2]==0:
                 label62Value.set(str(label62Value.get())[-1])
             except:
                 label62Value.set(0)
-    label62 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label62Value)
+    label62 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label62Value)
     label62Value.trace("w",lambda *args: keyPress62())
 else:
     label62 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][2])+" ", borderwidth=1, relief='groove')
@@ -1052,7 +1053,7 @@ if board[6][3]==0:
                 label63Value.set(str(label63Value.get())[-1])
             except:
                 label63Value.set(0)
-    label63 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label63Value)
+    label63 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label63Value)
     label63Value.trace("w",lambda *args: keyPress63())
 else:
     label63 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[6][3]))
@@ -1063,7 +1064,7 @@ if board[6][4]==0:
                 label64Value.set(str(label64Value.get())[-1])
             except:
                 label64Value.set(0)
-    label64 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label64Value)
+    label64 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label64Value)
     label64Value.trace("w",lambda *args: keyPress64())
 else:
     label64 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[6][4]))
@@ -1074,7 +1075,7 @@ if board[6][5]==0:
                 label65Value.set(str(label65Value.get())[-1])
             except:
                 label65Value.set(0)
-    label65 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label65Value)
+    label65 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label65Value)
     label65Value.trace("w",lambda *args: keyPress65())
 else:
     label65 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[6][5]))
@@ -1085,7 +1086,7 @@ if board[6][6]==0:
                 label66Value.set(str(label66Value.get())[-1])
             except:
                 label66Value.set(0)
-    label66 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label66Value)
+    label66 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label66Value)
     label66Value.trace("w",lambda *args: keyPress66())
 else:
     label66 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][6])+" ", borderwidth=1, relief='groove')
@@ -1096,7 +1097,7 @@ if board[6][7]==0:
                 label67Value.set(str(label67Value.get())[-1])
             except:
                 label67Value.set(0)
-    label67 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label67Value)
+    label67 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label67Value)
     label67Value.trace("w",lambda *args: keyPress67())
 else:
     label67 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][7])+" ", borderwidth=1, relief='groove')
@@ -1107,7 +1108,7 @@ if board[6][8]==0:
                 label68Value.set(str(label68Value.get())[-1])
             except:
                 label68Value.set(0)
-    label68 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label68Value)
+    label68 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label68Value)
     label68Value.trace("w",lambda *args: keyPress68())
 else:
     label68 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[6][8])+" ", borderwidth=1, relief='groove')
@@ -1119,7 +1120,7 @@ if board[7][0]==0:
                 label70Value.set(str(label70Value.get())[-1])
             except:
                 label70Value.set(0)
-    label70 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label70Value)
+    label70 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label70Value)
     label70Value.trace("w",lambda *args: keyPress70())
 else:
     label70 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][0])+" ", borderwidth=1, relief='groove')
@@ -1130,7 +1131,7 @@ if board[7][1]==0:
                 label71Value.set(str(label71Value.get())[-1])
             except:
                 label71Value.set(0)
-    label71 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label71Value)
+    label71 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label71Value)
     label71Value.trace("w",lambda *args: keyPress71())
 else:
     label71 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][1])+" ", borderwidth=1, relief='groove')
@@ -1141,7 +1142,7 @@ if board[7][2]==0:
                 label72Value.set(str(label72Value.get())[-1])
             except:
                 label72Value.set(0)
-    label72 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label72Value)
+    label72 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label72Value)
     label72Value.trace("w",lambda *args: keyPress72())
 else:
     label72 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][2])+" ", borderwidth=1, relief='groove')
@@ -1152,7 +1153,7 @@ if board[7][3]==0:
                 label73Value.set(str(label73Value.get())[-1])
             except:
                 label73Value.set(0)
-    label73 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label73Value)
+    label73 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label73Value)
     label73Value.trace("w",lambda *args: keyPress73())
 else:
     label73 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[7][3]))
@@ -1163,7 +1164,7 @@ if board[7][4]==0:
                 label74Value.set(str(label74Value.get())[-1])
             except:
                 label74Value.set(0)
-    label74 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label74Value)
+    label74 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label74Value)
     label74Value.trace("w",lambda *args: keyPress74())
 else:
     label74 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[7][4]))
@@ -1174,7 +1175,7 @@ if board[7][5]==0:
                 label75Value.set(str(label75Value.get())[-1])
             except:
                 label75Value.set(0)
-    label75 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label75Value)
+    label75 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label75Value)
     label75Value.trace("w",lambda *args: keyPress75())
 else:
     label75 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), text=str(board[7][5]))
@@ -1185,7 +1186,7 @@ if board[7][6]==0:
                 label76Value.set(str(label76Value.get())[-1])
             except:
                 label76Value.set(0)
-    label76 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label76Value)
+    label76 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label76Value)
     label76Value.trace("w",lambda *args: keyPress76())
 else:
     label76 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][6])+" ", borderwidth=1, relief='groove')
@@ -1196,7 +1197,7 @@ if board[7][7]==0:
                 label77Value.set(str(label77Value.get())[-1])
             except:
                 label77Value.set(0)
-    label77 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label77Value)
+    label77 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label77Value)
     label77Value.trace("w",lambda *args: keyPress77())
 else:
     label77 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][7])+" ", borderwidth=1, relief='groove')
@@ -1207,7 +1208,7 @@ if board[7][8]==0:
                 label78Value.set(str(label78Value.get())[-1])
             except:
                 label78Value.set(0)
-    label78 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label78Value)
+    label78 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label78Value)
     label78Value.trace("w",lambda *args: keyPress78())
 else:
     label78 = Label(root, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[7][8])+" ", borderwidth=1, relief='groove')
@@ -1219,7 +1220,7 @@ if board[8][0]==0:
                 label80Value.set(str(label80Value.get())[-1])
             except:
                 label80Value.set(0)
-    label80 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label80Value)
+    label80 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label80Value)
     label80Value.trace("w",lambda *args: keyPress80())
 else:
     label80 = Label(root, bd=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), text=""+str(board[8][0])+" ", borderwidth=1, relief='groove')
@@ -1230,7 +1231,7 @@ if board[8][1]==0:
                 label81Value.set(str(label81Value.get())[-1])
             except:
                 label81Value.set(0)
-    label81 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label81Value)
+    label81 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label81Value)
     label81Value.trace("w",lambda *args: keyPress81())
 else:
     label81 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][1])+" ", borderwidth=1, relief='groove')
@@ -1241,7 +1242,7 @@ if board[8][2]==0:
                 label82Value.set(str(label82Value.get())[-1])
             except:
                 label82Value.set(0)
-    label82 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label82Value)
+    label82 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label82Value)
     label82Value.trace("w",lambda *args: keyPress82())
 else:
     label82 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][2])+" ", borderwidth=1, relief='groove')
@@ -1252,7 +1253,7 @@ if board[8][3]==0:
                 label83Value.set(str(label83Value.get())[-1])
             except:
                 label83Value.set(0)
-    label83 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label83Value)
+    label83 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label83Value)
     label83Value.trace("w",lambda *args: keyPress83())
 else:
     label83 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), bd=2, text=str(board[8][3]))
@@ -1263,7 +1264,7 @@ if board[8][4]==0:
                 label84Value.set(str(label84Value.get())[-1])
             except:
                 label84Value.set(0)
-    label84 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label84Value)
+    label84 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label84Value)
     label84Value.trace("w",lambda *args: keyPress84())
 else:
     label84 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), bd=2, text=str(board[8][4]))
@@ -1274,7 +1275,7 @@ if board[8][5]==0:
                 label85Value.set(str(label85Value.get())[-1])
             except:
                 label85Value.set(0)
-    label85 = Entry(root, bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label85Value)
+    label85 = Entry(root, cursor='hand2', bd=1, bg='#FFFFFF', fg='#000000', width=2, font=('Verdana',8), justify='center', textvariable=label85Value)
     label85Value.trace("w",lambda *args: keyPress85())
 else:
     label85 = Label(root, bg='#FFFFFF', fg='#000000', font=('Verdana',8), bd=2, text=str(board[8][5]))
@@ -1285,7 +1286,7 @@ if board[8][6]==0:
                 label86Value.set(str(label86Value.get())[-1])
             except:
                 label86Value.set(0)
-    label86 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label86Value)
+    label86 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label86Value)
     label86Value.trace("w",lambda *args: keyPress86())
 else:
     label86 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][6])+" ", borderwidth=1, relief='groove')
@@ -1296,7 +1297,7 @@ if board[8][7]==0:
                 label87Value.set(str(label87Value.get())[-1])
             except:
                 label87Value.set(0)
-    label87 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label87Value)
+    label87 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label87Value)
     label87Value.trace("w",lambda *args: keyPress87())
 else:
     label87 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][7])+" ", borderwidth=1, relief='groove')
@@ -1307,7 +1308,7 @@ if board[8][8]==0:
                 label88Value.set(str(label88Value.get())[-1])
             except:
                 label88Value.set(0)
-    label88 = Entry(root, bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label88Value)
+    label88 = Entry(root, cursor='hand2', bd=1, width=2, bg='#C0C0C0', fg='#000000', font=('Verdana',8), justify='center', textvariable=label88Value)
     label88Value.trace("w",lambda *args: keyPress88())
 else:
     label88 = Label(root, bg='#C0C0C0', fg='#000000', bd=2, font=('Verdana',8), text=""+str(board[8][8])+" ", borderwidth=1, relief='groove') 
@@ -1320,6 +1321,7 @@ def newWin():
         return
     global attempt,sec,hour,min
     newWin = Toplevel(root)
+    newWin.focus_force()
     newWin.title('Sudoku - 9x9')
     try:
         newWin.iconbitmap('sudoku.ico')
