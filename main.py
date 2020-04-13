@@ -1576,13 +1576,13 @@ def timeTaken():
         min = 0
     return t
 
-submitButton = Button(root, text="Submit", padx=23, pady=10, font=('Verdana',8), bg='#FFCCCB',fg='#000000', command=call_submit)
+submitButton = Button(root, text="Submit\n[Enter]", padx=23, pady=2, font=('Verdana',8), bg='#FFCCCB',fg='#000000', command=call_submit)
 submitButton.grid(row=10, column=0, columnspan=3)
 
-solveButton = Button(root, text="Solve", padx=23, pady=10, font=('Verdana',8), bg='#87CEEB', fg='#000000', command=call_solve)
+solveButton = Button(root, text="Solve\n[SpaceBar]", padx=10, pady=2, font=('Verdana',8), bg='#87CEEB', fg='#000000', command=call_solve)
 solveButton.grid(row=10, column=2, columnspan=5)
 
-timeLapse = Label(root, text=timeTaken(), padx=19, pady=10, font=('Verdana',8), fg="#000000", bg="#FFFFFF")
+timeLapse = Label(root, text=timeTaken(), padx=18, pady=10, font=('Verdana',8), fg="#000000", bg="#FFFFFF")
 timeLapse.grid(row=10, column=6, columnspan=3)
 
 root.mainloop()
