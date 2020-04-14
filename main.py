@@ -1388,6 +1388,7 @@ for i in range(0,len(labels)):
         labels[i][j].grid(row=i, column=j, ipadx=6, ipady=5, padx=0, pady=0)
 
 def call_submit(*args):
+    print(root.focus_get())
     global submitButtonCount,attempt,error
     attempt += 1
     submitButtonCount += 1
@@ -1541,8 +1542,27 @@ def call_solve(*args):
     del temp
     del t
 
+def leval(z):
+    global noOfEmpty
+    if z:
+        for _ in range(0,noOfEmpty-1):
+            root.event_generate('<Tab>')
+            if str(root.focus_get())=='.!button':
+                root.event_generate('<Tab>')
+            if str(root.focus_get())=='.!button2':
+                root.event_generate('<Tab>')
+    else:
+        root.event_generate('<Tab>')
+        if str(root.focus_get())=='.!button':
+            root.event_generate('<Tab>')
+        if str(root.focus_get())=='.!button2':
+            root.event_generate('<Tab>')
+
+
 root.bind('<Return>', call_submit)
 root.bind('<space>', call_solve)
+root.bind('<Left>', lambda *args: leval(True))
+root.bind('<Right>', lambda *args: leval(False))
 
 timeLapse = Label()
 
