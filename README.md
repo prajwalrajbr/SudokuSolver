@@ -1,8 +1,8 @@
 # SudokuSolver
 
-Completely written in python.
-GUI is done with Tkinter a pyhton library
-This app uses the board from third party API if there is Data connection else it creates the board from simple algorithm.
+Completely written in python. 
+GUI is done with Tkinter a pyhton library. 
+This app uses the board from third party API if there is Data connection else it creates the board from simple algorithm. 
 It solves the board through Backtracking algorithm.
 
 The Sudoku.exe file is the project executable file.
